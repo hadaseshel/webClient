@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Regist.css';
 
-function Regist() {
+function Regist({users}) {
     return (
     <div> 
         <label> Username </label>
@@ -13,7 +13,7 @@ function Regist() {
 
         <label><br></br> Display name </label>
         <input type="text" id="display name" name="password"></input>
-        
+
         <label><br></br></label>
         <button>Register</button>
 
