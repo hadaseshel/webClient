@@ -2,7 +2,7 @@
 import './Login.css';
 
 
-function Login() {
+function Login({users}) {
     return (
     <div> 
         <label> Username </label>
@@ -12,11 +12,11 @@ function Login() {
         <input type="text" id="password" name="password"></input>
         
         <label><br></br></label>
-        <button>Register</button>
+        <button>Login</button>
 
         <label><br></br> Not registred? </label>
         <a href="./registration/Regist.js">Click here</a>
-        <label> to registr </label>
+        <label> to register </label>
         
      </div>
     );
