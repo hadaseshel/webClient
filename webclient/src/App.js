@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Regist from './registration/Regist.js'
+import Login from './login/Login';
 
 function App() {
+  /* the const */
+    const users = [{username: 'hadaseshel', password: '12ha', nikename: 'doosa'},
+                    {username: 'hailzanbar', password: '34ha', nikename: 'hailosh'}]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          hii
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Login />
     </div>
   );
 }
 
 export default App;
+
+/*
+<a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >*/
