@@ -1,4 +1,5 @@
 import './Login.css';
+import {Link} from "react-router-dom";
 
 function Login({users}) {
     return (
@@ -24,8 +25,8 @@ function Login({users}) {
           </div>
           
           <div>
-            <label> Not registred? &nbsp; </label>
-            <a href="./registration/Regist.js">Click here</a>
+            <label> Not registred? &nbsp;</label>
+            <a href="/regist"> Click here </a>
             <label>&nbsp; to register </label> 
           </div>
         </form>

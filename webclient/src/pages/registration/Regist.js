@@ -18,7 +18,7 @@ function Regist({users}) {
         <button>Register</button>
 
         <label><br></br> Already registred? </label>
-        <a href="https://www.google.com">Click here</a>
+        <a href="/"> Click here </a>
         <label> to login </label>
         
      </div>
