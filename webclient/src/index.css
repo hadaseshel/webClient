@@ -12,5 +12,23 @@ code {
 }
 
 a{
-  color: rgb(9, 44, 9);
+  color: #000;
+}
+a:hover {
+  color: purple;
+}
+
+input{
+  color: #000;
+  background-color:  ghostwhite;
+  outline-color: purple;
+}
+  
+
+#login{
+  background-color: rgba(122, 236, 122, 0.144);
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  border: 3px solid green;
 }
