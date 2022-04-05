@@ -25,9 +25,9 @@ function Login({users}) {
           </div>
           
           <div>
-            <label> Not registred? &nbsp;</label>
+            <label> Not registred?&nbsp;</label>
             <a href="/regist"> Click here </a>
-            <label>&nbsp; to register </label> 
+            <label>&nbsp;to register </label> 
           </div>
         </form>
      </div>
