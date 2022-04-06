@@ -1,16 +1,25 @@
-#login{
-    background-color: azure;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    border: 3px solid green;
-}
 
 input{
-    width: 75%;
+    width: 80%;
 }
 
 button{
     width: 30%;
 }
 
+img{
+    padding: 0;
+    margin: 0;
+}
+
+#title{
+    padding: 010px;
+    color: purple;
+    font-weight: bold;
+}
+
+.alert {
+    color: rgb(14, 12, 14);
+    background-color: rgba(128, 0, 128, 0.178);
+    border-color: purple;
+}
