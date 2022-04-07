@@ -21,18 +21,35 @@ function EmptyDetails(){
 // alert if the name is in used in the app
 function UserNameInUsed(){
   return(
-    <div class="alert" role="alert">The username is in used. Please select another username</div>
+    <div class="alert" role="alert">That username is taken. Please select another username</div>
   );
 }
+
+// alert if the username or password or nickname doesnot fit the regex
+function WongPattern(){
+  return(
+    <div class="alert" role="alert">
+      The username or password or nick name does not fit the pattern. make sure you use letters or numbers. 
+      </div>
+  );
+}
+
 function Regist({users}) {
+  // referrence to input os user
   const usernameInput = useRef();
   const passwordInput = useRef();
   const nickNameInput = useRef();
   const coinfirmPasswordInput = useRef();
   const navigate = useNavigate();
+
+  // state to get an image
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  // state to hendle error
   const [error, setError] = useState("");
   const [nameInUse, setNameInUse] = useState("");
   const [empty, setEmpty] = useState("");
+  const [wongRegex, setWongRegex] = useState("");
 
   const checkRegister = function(){
   let userName = usernameInput.current.value;
@@ -41,17 +58,28 @@ function Regist({users}) {
   let coinfirmPassword= coinfirmPasswordInput.current.value;
 
   if(userName==="" || password ==="" || nickName === "" || coinfirmPassword === ""){
+    setWongRegex("")
+    setNameInUse("");
     setEmpty("empty");
+    return;
   }
   for (let i = 0; i < users.length; i++){
     // if the username and the password are correct, move to the chats page. (working!)
       if (userName === users[i].username){
+        setWongRegex("")
+        setEmpty("");
         setNameInUse("used");
+        return;
       }
+  }
+  var validRegex = /^[a-zA-Z0-9]+$/;
+  if(!validRegex.test(userName)||!validRegex.test(password)||!validRegex.test(nickName)){
+    setEmpty("");
+    setNameInUse("");
+    setWongRegex("wrong pattern")
   }
  
 }
-
     return (
     <div className = "container"> 
       <img src="logo1.png" id ="logo" width = "170" height= "170"></img>
@@ -59,6 +87,7 @@ function Regist({users}) {
         {(error!="")?(<WongDetails/>):""}
         {(empty!="")?(<EmptyDetails/>):""}
         {(nameInUse!="")?(<UserNameInUsed/>):""}
+        {(wongRegex!="")?(<WongPattern/>):""}
         <div class="form-group row">
           <label class="col-sm-4 col-form-label"> Username </label>
           <div class="col-sm-8">
@@ -84,6 +113,13 @@ function Regist({users}) {
           <label class="col-sm-4 col-form-label"> Confirm password </label> 
           <div class="col-sm-8">
             <input type="password" placeholder="Confirm password" id="password" name="password" ref={coinfirmPasswordInput} ></input>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Upload image </label> 
+          <div class="col-sm-8">
+          <input type="file" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
           </div>
         </div>
         

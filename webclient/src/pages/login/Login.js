@@ -17,13 +17,15 @@ function EmptyDetails(){
 }
 
 function Login({users}) {
+  // reference to input of user
   const usernameInput = useRef();
-  const NickNameInput = useRef();
   const passwordInput = useRef();
-  const coinfirmPasswordInput = useRef();
   const navigate = useNavigate();
+
+  // states for hendale errors
   const [error, setError] = useState("");
   const [empty, setEmpty] = useState("");
+
 
   const checkLogin = function(){
   let userName = usernameInput.current.value;
