@@ -7,21 +7,21 @@ import { useNavigate } from 'react-router-dom';
 // alert if Password is not contain number, appercase and lowercase
 function ErrorPassrowd(){
   return(
-    <div class="alert" role="alert">Passwords has at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. All the other characters are not allowed to use in the passraword.</div>
+    <div class="alert" role="alert">Passwords has at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. &nbsp;All the other characters are not allowed to use in the password.</div>
   );
 }
 
 // alert if Password and confirm password does not match
 function ErrorPassrowdCoinfirm(){
   return(
-    <div class="alert" role="alert">Password and confirm password does not match.</div>
+    <div class="alert" role="alert">The confirm password does not match the password.</div>
   );
 }
 
 // alert if there is empty input
 function EmptyDetails(){
   return(
-    <div class="alert" role="alert">There is an empty field. Please enter your details for all fields</div>
+    <div class="alert " role="alert">There is an empty field. Please enter your details into all the fields.</div>
   );
 }
 
@@ -36,7 +36,7 @@ function UserNameInUsed(){
 function WrongPattern(){
   return(
     <div class="alert" role="alert">
-      The username or nick name does not fit the pattern. make sure you use only character types of letters or numbers. 
+      The username or nick name does not fit the pattern. Make sure you use only the character types of letters or numbers. 
       </div>
   );
 }
@@ -106,7 +106,7 @@ function Regist({users}) {
     setNameInUse("");
     setWrongRegex("");
     setErrorPassrowdCoinfirm("");
-    console.log(password)
+    setErrorPassrowd("error in password")
     return;
   }
 
@@ -122,7 +122,6 @@ function Regist({users}) {
   var element= {username: userName, password: password, nickname: nickName}
   users.push(element);
   navigate("/chats");
- 
 }
     return (
     <div className = "container"> 
@@ -164,7 +163,7 @@ function Regist({users}) {
         <div class="form-group row">
           <label class="col-sm-4 col-form-label"> Upload image </label> 
           <div class="col-sm-8">
-          <input type="file" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
+          <input type="file" accept="image/png, image/jpeg" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
           </div>
         </div>
         
