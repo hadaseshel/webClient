@@ -133,6 +133,7 @@ function Regist({users}) {
           <label>&nbsp;to login </label> 
         </div>
       </form>
+      <div class="form-group row">&nbsp;</div>
    </div>);
   }
   

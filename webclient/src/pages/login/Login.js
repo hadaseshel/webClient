@@ -76,6 +76,7 @@ function Login({users}) {
             <label>&nbsp;to register </label> 
           </div>
         </form>
+        <div class="form-group row">&nbsp;</div>
      </div>
     );
   }
