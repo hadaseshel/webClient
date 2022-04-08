@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ReactDOM from "react-dom";
 import {
@@ -13,8 +12,8 @@ import Login from './pages/login/Login';
 
 function App() {
   /* the const */
-  const users = [{username: 'hadaseshel', password: '12ha', nikename: 'doosa'},
-                  {username: 'hailzanbar', password: '34ha', nikename: 'hailosh'}]
+  const users = [{username: 'hadaseshel', password: '12ha', nickname: 'doosa'},
+                  {username: 'hailzanbar', password: '34ha', nickname: 'hailosh'}]
                   
   return (
     <>
