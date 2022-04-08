@@ -4,21 +4,28 @@ import './Regist.css';
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-// alert if there is wong Details
-function WongDetails(){
+// alert if Password is not contain number, appercase and lowercase
+function ErrorPassrowd(){
   return(
-    <div class="alert" role="alert">Incorrect username or password.</div>
+    <div class="alert" role="alert">Passwords has at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. &nbsp;All the other characters are not allowed to use in the password.</div>
+  );
+}
+
+// alert if Password and confirm password does not match
+function ErrorPassrowdCoinfirm(){
+  return(
+    <div class="alert" role="alert">The confirm password does not match the password.</div>
   );
 }
 
 // alert if there is empty input
 function EmptyDetails(){
   return(
-    <div class="alert" role="alert">There is an empty field. Please enter your details for all fields</div>
+    <div class="alert " role="alert">There is an empty field. Please enter your details into all the fields.</div>
   );
 }
 
-// alert if the name is in used in the app
+// alert if the username is in used in the app
 function UserNameInUsed(){
   return(
     <div class="alert" role="alert">That username is taken. Please select another username</div>
@@ -26,10 +33,10 @@ function UserNameInUsed(){
 }
 
 // alert if the username or password or nickname doesnot fit the regex
-function WongPattern(){
+function WrongPattern(){
   return(
     <div class="alert" role="alert">
-      The username or password or nick name does not fit the pattern. make sure you use letters or numbers. 
+      The username or nick name does not fit the pattern. Make sure you use only the character types of letters or numbers. 
       </div>
   );
 }
@@ -46,48 +53,85 @@ function Regist({users}) {
   const [selectedFile, setSelectedFile] = useState(null);
 
   // state to hendle error
-  const [error, setError] = useState("");
+  const [errorPassrowdCoinfirm, setErrorPassrowdCoinfirm] = useState("");
+  const [errorPassrowd, setErrorPassrowd] = useState("");
   const [nameInUse, setNameInUse] = useState("");
   const [empty, setEmpty] = useState("");
-  const [wongRegex, setWongRegex] = useState("");
+  const [wrongRegex, setWrongRegex] = useState("");
 
+  // that function chak the valid of register
   const checkRegister = function(){
+  // inputs into varbiale of 
   let userName = usernameInput.current.value;
   let password = passwordInput.current.value;
   let nickName = nickNameInput.current.value;
   let coinfirmPassword= coinfirmPasswordInput.current.value;
 
+  // alert if there is empty input
   if(userName==="" || password ==="" || nickName === "" || coinfirmPassword === ""){
-    setWongRegex("")
+    setErrorPassrowd("");
+    setErrorPassrowdCoinfirm("");
+    setWrongRegex("")
     setNameInUse("");
     setEmpty("empty");
     return;
   }
+
+  // alert if the username is in used in the app
   for (let i = 0; i < users.length; i++){
-    // if the username and the password are correct, move to the chats page. (working!)
       if (userName === users[i].username){
-        setWongRegex("")
+        setErrorPassrowd("");
+        setErrorPassrowdCoinfirm("");
+        setWrongRegex("")
         setEmpty("");
         setNameInUse("used");
         return;
       }
   }
+
+  // alert if the username or password or nickname doesnot fit the regex
   var validRegex = /^[a-zA-Z0-9]+$/;
-  if(!validRegex.test(userName)||!validRegex.test(password)||!validRegex.test(nickName)){
+  if(!validRegex.test(userName)||!validRegex.test(nickName)){
+    setErrorPassrowd("");
+    setEmpty("");
+    setErrorPassrowdCoinfirm("");
+    setNameInUse("");
+    setWrongRegex("wrong pattern");
+    return;
+  }
+
+  // alert if Password is not contain number, appercase and lowercase
+  if(!/\d/g.test(password)||!/[a-z]/g.test(password)||!/[A-Z]/g.test(password)||!validRegex.test(password)||password.length<8){
     setEmpty("");
     setNameInUse("");
-    setWongRegex("wrong pattern")
+    setWrongRegex("");
+    setErrorPassrowdCoinfirm("");
+    setErrorPassrowd("error in password")
+    return;
   }
- 
+
+  // alert if Password and confirm password does not match
+  if(password!==coinfirmPassword){
+    setErrorPassrowd("");
+    setEmpty("");
+    setNameInUse("");
+    setWrongRegex("");
+    setErrorPassrowdCoinfirm("the password is not eqal to the confirm passraword");
+    return;
+  }
+  var element= {username: userName, password: password, nickname: nickName}
+  users.push(element);
+  navigate("/chats");
 }
     return (
     <div className = "container"> 
       <img src="logo1.png" id ="logo" width = "170" height= "170"></img>
       <form id = "register">
-        {(error!="")?(<WongDetails/>):""}
+        {(errorPassrowdCoinfirm!="")?(<ErrorPassrowdCoinfirm/>):""}
         {(empty!="")?(<EmptyDetails/>):""}
         {(nameInUse!="")?(<UserNameInUsed/>):""}
-        {(wongRegex!="")?(<WongPattern/>):""}
+        {(wrongRegex!="")?(<WrongPattern/>):""}
+        {(errorPassrowd!="")?(<ErrorPassrowd/>):""}
         <div class="form-group row">
           <label class="col-sm-4 col-form-label"> Username </label>
           <div class="col-sm-8">
@@ -119,7 +163,7 @@ function Regist({users}) {
         <div class="form-group row">
           <label class="col-sm-4 col-form-label"> Upload image </label> 
           <div class="col-sm-8">
-          <input type="file" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
+          <input type="file" accept="image/png, image/jpeg" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
           </div>
         </div>
         
