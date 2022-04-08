@@ -1,5 +1,7 @@
 import React from 'react';
 import "./Chats.css";
+import SideBar from './SideBar';
+
 
 export default function Chats() {
   
@@ -7,7 +9,7 @@ export default function Chats() {
     <div className="chats">
       <h1>Chats</h1>
       <div className="chats_body">
-        {"SideBar"}
+        <SideBar />
         {/*ChatScreen*/}
       </div>
     </div>
