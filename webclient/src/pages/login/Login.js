@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom';
 // alert if there is wong Details
 function WongDetails(){
   return(
-    <div class="alert" role="alert">Incorrect username or password.</div>
+    <div className="alert" role="alert">Incorrect username or password.</div>
   );
 }
 
 // alert if there is empty input
 function EmptyDetails(){
   return(
-    <div class="alert" role="alert">You did not enter username or password.</div>
+    <div className="alert" role="alert">You did not enter username or password.</div>
   );
 }
 
@@ -53,22 +53,22 @@ function Login({users}) {
         <form id = "login">
           {(error!="")?(<WongDetails/>):""}
           {(empty!="")?(<EmptyDetails/>):""}
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label"> Username </label>
-            <div class="col-sm-8">
+          <div className="form-group row">
+            <label className="col-sm-4 col-form-label"> Username </label>
+            <div className="col-sm-8">
               <input type="text" placeholder="Enter Username" id="uname" name="uname" ref={usernameInput}></input>
             </div>
           </div>
 
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label"> Password </label> 
-            <div class="col-sm-8">
+          <div className="form-group row">
+            <label className="col-sm-4 col-form-label"> Password </label> 
+            <div className="col-sm-8">
               <input type="password" placeholder="Enter Password" id="password" name="password" ref={passwordInput}></input>
             </div>
           </div>
           
           <div>
-            <button type="button" class="btn btn-success" onClick={checkLogin}>Login</button>
+            <button type="button" className="btn btn-success" onClick={checkLogin}>Login</button>
           </div>
           
           <div>
@@ -77,7 +77,7 @@ function Login({users}) {
             <label>&nbsp;to register </label> 
           </div>
         </form>
-        <div class="form-group row" id="last div">&nbsp;</div>
+        <div className="form-group row" id="last div">&nbsp;</div>
      </div>
     );
   }

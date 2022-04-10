@@ -7,35 +7,35 @@ import { useNavigate } from 'react-router-dom';
 // alert if Password is not contain number, appercase and lowercase
 function ErrorPassrowd(){
   return(
-    <div class="alert" role="alert">Passwords has at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. &nbsp;All the other characters are not allowed to use in the password.</div>
+    <div className="alert" role="alert">Passwords has at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. &nbsp;All the other characters are not allowed to use in the password.</div>
   );
 }
 
 // alert if Password and confirm password does not match
 function ErrorPassrowdCoinfirm(){
   return(
-    <div class="alert" role="alert">The confirm password does not match the password.</div>
+    <div className="alert" role="alert">The confirm password does not match the password.</div>
   );
 }
 
 // alert if there is empty input
 function EmptyDetails(){
   return(
-    <div class="alert " role="alert">There is an empty field. Please enter your details into all the fields.</div>
+    <div className="alert " role="alert">There is an empty field. Please enter your details into all the fields.</div>
   );
 }
 
 // alert if the username is in used in the app
 function UserNameInUsed(){
   return(
-    <div class="alert" role="alert">That username is taken. Please select another username</div>
+    <div className="alert" role="alert">That username is taken. Please select another username</div>
   );
 }
 
 // alert if the username or password or nickname doesnot fit the regex
 function WrongPattern(){
   return(
-    <div class="alert" role="alert">
+    <div className="alert" role="alert">
       The username or nick name does not fit the pattern. Make sure you use only the character types of letters or numbers. 
       </div>
   );
@@ -133,44 +133,44 @@ function Regist({users}) {
         {(nameInUse!="")?(<UserNameInUsed/>):""}
         {(wrongRegex!="")?(<WrongPattern/>):""}
         {(errorPassrowd!="")?(<ErrorPassrowd/>):""}
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label"> Username </label>
-          <div class="col-sm-8">
+        <div className="form-group row">
+          <label className="col-sm-4 col-form-label"> Username </label>
+          <div className="col-sm-8">
             <input type="text" placeholder="Enter Username" id="uname" name="uname" ref={usernameInput}></input>
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label"> Nick name </label>
-          <div class="col-sm-8">
-            <input type="text" placeholder="Enter Nick name" id="uname" name="uname" ref={nickNameInput}></input>
+        <div className="form-group row">
+          <label className="col-sm-4 col-form-label"> Nick name </label>
+          <div className="col-sm-8">
+            <input type="text" placeholder="Enter Nick name" id="nickname" name="uname" ref={nickNameInput}></input>
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label"> Password </label> 
-          <div class="col-sm-8">
+        <div className="form-group row">
+          <label className="col-sm-4 col-form-label"> Password </label> 
+          <div className="col-sm-8">
             <input type="password" placeholder="Enter Password" id="password" name="password" ref={passwordInput}></input>
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label"> Confirm password </label> 
-          <div class="col-sm-8">
-            <input type="password" placeholder="Confirm password" id="password" name="password" ref={coinfirmPasswordInput} ></input>
+        <div className="form-group row">
+          <label className="col-sm-4 col-form-label"> Confirm password </label> 
+          <div className="col-sm-8">
+            <input type="password" placeholder="Confirm password" id="confirmpassword" name="password" ref={coinfirmPasswordInput} ></input>
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label"> Upload image </label> 
-          <div class="col-sm-8">
+        <div className="form-group row">
+          <label className="col-sm-4 col-form-label"> Upload image </label> 
+          <div className="col-sm-8">
             <label for="img" id="btnimag">Select image</label>
             <input type="file" id="img" accept="image/png, image/jpeg" ref={imgOfUser}/>
           </div>
         </div>
         
         <div>
-          <button type="button" class="btn btn-success" onClick={checkRegister}>Register</button>
+          <button type="button" className="btn btn-success" onClick={checkRegister}>Register</button>
         </div>
         
         <div>
@@ -179,7 +179,7 @@ function Regist({users}) {
           <label>&nbsp;to login </label> 
         </div>
       </form>
-      <div class="form-group row" id="last div">&nbsp;</div>
+      <div className="form-group row" id="last div">&nbsp;</div>
    </div>);
   }
   
