@@ -20,7 +20,7 @@ function AvatarPlusIcon() {
     );
 }
 
-function SideBar() {
+function SideBar({user}) {
     return (
         <div className="sidebar">
 

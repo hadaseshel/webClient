@@ -12,8 +12,8 @@ import Login from './pages/login/Login';
 
 function App() {
   /* the const */
-  const users = [{username: 'hadaseshel', password: '12ha', nickname: 'doosa'},
-                  {username: 'hailzanbar', password: '34ha', nickname: 'hailosh'}]
+  const users = [{username: 'hadaseshel', password: '12ha', nickname: 'doosa', image: null, friends: null},
+                  {username: 'hailzanbar', password: '34ha', nickname: 'hailosh', image: null, friends: null}]
                   
   return (
     <>
