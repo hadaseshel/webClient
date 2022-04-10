@@ -47,10 +47,11 @@ function Regist({users}) {
   const passwordInput = useRef();
   const nickNameInput = useRef();
   const coinfirmPasswordInput = useRef();
+  const imgOfUser = useRef();
   const navigate = useNavigate();
 
   // state to get an image
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState("");
 
   // state to hendle error
   const [errorPassrowdCoinfirm, setErrorPassrowdCoinfirm] = useState("");
@@ -119,9 +120,9 @@ function Regist({users}) {
     setErrorPassrowdCoinfirm("the password is not eqal to the confirm passraword");
     return;
   }
-  var element= {username: userName, password: password, nickname: nickName}
+  const element= {username: userName, password: password, nickname: nickName, image: imgOfUser.current.value, friends: null}
   users.push(element);
-  navigate("/chats");
+  navigate("/chats",{ state: { element } });
 }
     return (
     <div className = "container"> 
@@ -163,7 +164,8 @@ function Regist({users}) {
         <div class="form-group row">
           <label class="col-sm-4 col-form-label"> Upload image </label> 
           <div class="col-sm-8">
-          <input type="file" accept="image/png, image/jpeg" value={selectedFile} onChange={(e) => setSelectedFile(e.target.files[0])}/>
+            <label for="img" id="btnimag">Select image</label>
+            <input type="file" id="img" accept="image/png, image/jpeg" ref={imgOfUser}/>
           </div>
         </div>
         
@@ -177,7 +179,7 @@ function Regist({users}) {
           <label>&nbsp;to login </label> 
         </div>
       </form>
-      <div class="form-group row">&nbsp;</div>
+      <div class="form-group row" id="last div">&nbsp;</div>
    </div>);
   }
   
