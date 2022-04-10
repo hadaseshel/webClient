@@ -79,8 +79,8 @@ function Regist({users}) {
   }
 
   // alert if the username is in used in the app
-  for (let i = 0; i < users.length; i++){
-      if (userName === users[i].username){
+  for (var key in users){
+      if (userName === key){
         setErrorPassrowd("");
         setErrorPassrowdCoinfirm("");
         setWrongRegex("")
@@ -120,9 +120,9 @@ function Regist({users}) {
     setErrorPassrowdCoinfirm("the password is not eqal to the confirm passraword");
     return;
   }
-  const element= {username: userName, password: password, nickname: nickName, image: imgOfUser.current.value, friends: null}
-  users.push(element);
-  navigate("/chats",{ state: { element } });
+  const user = {password: password, nickname: nickName, image: imgOfUser.current.value, friends: null};
+  users[userName]=user;
+  navigate("/chats",{ state: { user } });
 }
     return (
     <div className = "container"> 

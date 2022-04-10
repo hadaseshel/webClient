@@ -27,7 +27,26 @@ function Login({users}) {
   const [error, setError] = useState("");
   const [empty, setEmpty] = useState("");
 
+  const checkLogin = function(){
+    let userName = usernameInput.current.value;
+    let password = passwordInput.current.value;
+  
+    for (var key in users){
+      // if the username and the password are correct, move to the chats page. (working!)
+        if (userName === key && password === users[key].password){
+          navigate("/chats");
+        }
+      }
+      if(userName==="" || password ===""){
+        setError("");
+        setEmpty("empty");
+      } else{
+        setEmpty("");
+        setError("error");
+      }
+    }
 
+/*
   const checkLogin = function(){
   let userName = usernameInput.current.value;
   let password = passwordInput.current.value;
@@ -45,7 +64,7 @@ function Login({users}) {
       setEmpty("");
       setError("error");
     }
-  }
+  }*/
 
     return (
     <div className = "container"> 
