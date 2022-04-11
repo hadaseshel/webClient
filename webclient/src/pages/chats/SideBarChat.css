@@ -4,3 +4,13 @@
     cursor: pointer;
     border-bottom: 1px solid #f6f6f6 ;
 }
+
+.friendImage {
+    float:left;
+    width:25%;
+}
+
+.info {
+    float:left;
+    width:100%;
+}
