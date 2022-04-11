@@ -2,6 +2,7 @@ import React from 'react';
 import "./Chats.css";
 import SideBar from './SideBar';
 import { useLocation } from 'react-router-dom';
+import ChatScreen from "./ChatScreen.js";
 
 function ErrorChat(){
   return(
@@ -26,7 +27,7 @@ export default function Chats({}) {
     <div className="chats">
       <div className="chats_body">
         <SideBar user={location.state}/>
-        {/*ChatScreen*/}
+        <ChatScreen/>
       </div>
     </div>
   );
