@@ -27,11 +27,10 @@
 */
 
 .sidebar_chats {
-    flex: 1;
     background-color: white;
-    overflow: scroll;
-    width: 100%;
-    height: 83%;
+    flex: 1;
+    overflow: auto;
+    height: 80%;
 }
 
 #userimag{
