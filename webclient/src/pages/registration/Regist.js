@@ -47,7 +47,7 @@ function Regist({users}) {
   const passwordInput = useRef();
   const nickNameInput = useRef();
   const coinfirmPasswordInput = useRef();
-  const imgOfUser = useRef();
+  const imgOfUser = useRef(null);
   const navigate = useNavigate();
 
   // state to get an image
@@ -59,6 +59,13 @@ function Regist({users}) {
   const [nameInUse, setNameInUse] = useState("");
   const [empty, setEmpty] = useState("");
   const [wrongRegex, setWrongRegex] = useState("");
+  const[foto,setFoto] = useState(null);
+  const target = useRef(null);
+
+  const HandelUpload = (e) => {
+    const uploaded = e.target.files[0];
+    setFoto(URL.createObjectURL(uploaded));
+  }
 
   // that function chak the valid of register
   const checkRegister = function(){
@@ -120,9 +127,9 @@ function Regist({users}) {
     setErrorPassrowdCoinfirm("the password is not eqal to the confirm passraword");
     return;
   }
-  const user = {password: password, nickname: nickName, image: imgOfUser.current.value, friends: []};
+  const user = {password: password, nickname: nickName, image: foto, friends: []};
   users[userName]=user;
-  navigate("/chats",{state: {password: password, nickname: nickName, image: imgOfUser.current.value, friends: []}});
+  navigate("/chats",{state: {password: password, nickname: nickName, image: foto, friends: []}});
 }
     return (
     <div className = "container"> 
@@ -165,7 +172,8 @@ function Regist({users}) {
           <label className="col-sm-4 col-form-label"> Upload image </label> 
           <div className="col-sm-8">
             <label for="img" id="btnimag">Select image</label>
-            <input type="file" id="img" accept="image/png, image/jpeg" ref={imgOfUser}/>
+            <input type="file" id="img" accept="image/png, image/jpeg" ref={target} onChange={(e)=>HandelUpload(e)}/>
+            {/*foto!==null && <img src={foto} />*/}
           </div>
         </div>
         
