@@ -1,5 +1,5 @@
 body {
-  background: rgb(243, 221, 243);
+  background: ghostwhite;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,12 +8,12 @@ body {
 body:before {
   content: "";
   position: absolute;
-  top: 240px;
-  /*top: 240px;*/
+  height: 240px;
+  top: 0;
   bottom:0;
   left: 0;
   right: 0;
-  background: ghostwhite;
+  background: rgb(243, 221, 243);
   z-index:-1;
 }
 

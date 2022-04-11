@@ -1,7 +1,7 @@
 import Avatar from "./icons/Avatar";
 import "./ChatScreen.css";
-import { Paperclip } from 'react-bootstrap-icons';
-import { Send } from 'react-bootstrap-icons';
+import Send from "./icons/Send";
+import IcionPaperclip from "./icons/IconPaperclip";
 
 
 
@@ -20,7 +20,7 @@ function ChatScreen(){
             </div>
 
             <div className="chat_footer">
-                <button type="button" className="btn btn-outline-secondary btn-sm"><Paperclip /></button>
+                <button type="button" className="btn btn-outline-secondary btn-sm"><IcionPaperclip /></button>
                 <from className="chat_footer_from">
                     <input type="text" placeholder="New message here.."></input>
                     <button type="button" className="btn btn-outline-secondary btn-sm"><Send /></button>
