@@ -21,6 +21,8 @@ function AvatarPlusIcon() {
 }
 
 function SideBar({user}) {
+    console.log(user.password);
+   
     return (
         <div className="sidebar">
 

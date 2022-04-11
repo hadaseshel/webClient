@@ -46,29 +46,9 @@ function Login({users}) {
       }
     }
 
-/*
-  const checkLogin = function(){
-  let userName = usernameInput.current.value;
-  let password = passwordInput.current.value;
-
-  for (let i = 0; i < users.length; i++){
-    // if the username and the password are correct, move to the chats page. (working!)
-      if (userName === users[i].username && password === users[i].password){
-        navigate("/chats");
-      }
-    }
-    if(userName==="" || password ===""){
-      setError("");
-      setEmpty("empty");
-    } else{
-      setEmpty("");
-      setError("error");
-    }
-  }*/
-
     return (
     <div className = "container"> 
-        <img src="logo1.png" id ="logo" width = "170" height= "170"></img>
+        <img src="logoHioosh.png" id ="logo" width = "170" height= "170"></img>
         <form id = "login">
           {(error!="")?(<WongDetails/>):""}
           {(empty!="")?(<EmptyDetails/>):""}

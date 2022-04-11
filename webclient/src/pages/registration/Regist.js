@@ -122,11 +122,11 @@ function Regist({users}) {
   }
   const user = {password: password, nickname: nickName, image: imgOfUser.current.value, friends: null};
   users[userName]=user;
-  navigate("/chats",{ state: { user } });
+  navigate("/chats",{state: {password: password, nickname: nickName, image: imgOfUser.current.value, friends: null}});
 }
     return (
     <div className = "container"> 
-      <img src="logo1.png" id ="logo" width = "170" height= "170"></img>
+      <img src="logoHioosh.png" id ="logo" width = "170" height= "170"></img>
       <form id = "register">
         {(errorPassrowdCoinfirm!="")?(<ErrorPassrowdCoinfirm/>):""}
         {(empty!="")?(<EmptyDetails/>):""}
