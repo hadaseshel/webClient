@@ -1,6 +1,12 @@
 import React from "react";
 import "./SideBar.css";
 import SideBarChat from "./SideBarChat.js";
+import { useRef, useState } from "react";
+
+
+function Image(){
+
+}
 
 function Avatar() {
     return (
@@ -21,13 +27,19 @@ function AvatarPlusIcon() {
 }
 
 function SideBar({user}) {
-    console.log(user.password);
+
+    // state to hendle error
+    const [image, setImage] = useState("");
+    /*
+    if(user.image!=null){
+        setImage("image");
+    }*/
    
     return (
         <div className="sidebar">
 
             <div className="sidebar_header">
-                <Avatar/>
+                {(image!="")?<Image/>:<Avatar/>}
                 <div className="sidebar_headerR">
                     <button type="button" class="btn btn-outline-secondary btn-sm"><AvatarPlusIcon /></button>
                 </div>
@@ -38,7 +50,6 @@ function SideBar({user}) {
                 <SideBarChat/>
                 <SideBarChat/>
                 <SideBarChat/>
-
             </div>
 
         </div>
