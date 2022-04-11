@@ -34,6 +34,14 @@ function SideBar({user}) {
     if(user.image!=null){
         setImage("image");
     }*/
+    console.log(user.password);
+    console.log(user.friends);
+    const chats = user.friends;
+
+    // sync the chat list in the sidebar with the user's friends.
+    const chatList = chats.map((friend, key) => {
+        return <SideBarChat nickname={friend.nickname} image={friend.image} chat={friend.chat} key={key} />;
+    });
    
     return (
         <div className="sidebar">
@@ -46,10 +54,7 @@ function SideBar({user}) {
             </div>
 
             <div className="sidebar_chats">
-                <SideBarChat/>
-                <SideBarChat/>
-                <SideBarChat/>
-                <SideBarChat/>
+                {chatList}
             </div>
 
         </div>
