@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Regist.css';
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Users from '../../Users.js';
 
 // alert if Password is not contain number, appercase and lowercase
 function ErrorPassrowd(){
@@ -86,7 +87,7 @@ function Regist({users}) {
   }
 
   // alert if the username is in used in the app
-  for (var key in users){
+  for (var key in Users){
       if (userName === key){
         setErrorPassrowd("");
         setErrorPassrowdCoinfirm("");
@@ -128,7 +129,7 @@ function Regist({users}) {
     return;
   }
   const user = {password: password, nickname: nickName, image: foto, friends: []};
-  users[userName]=user;
+  Users[userName]=user;
   navigate("/chats",{state: {password: password, nickname: nickName, image: foto, friends: []}});
 }
     return (
@@ -183,7 +184,7 @@ function Regist({users}) {
         
         <div>
           <label> Already registred?&nbsp; </label>
-          <a href="/">Click here</a>
+          <button className="button_of_link" onClick={()=>{navigate("/")}}>Click here</button>
           <label>&nbsp;to login </label> 
         </div>
       </form>

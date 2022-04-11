@@ -1,6 +1,8 @@
 import './Login.css';
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Users from '../../Users.js';
+
 
 // alert if there is wong Details
 function WongDetails(){
@@ -18,6 +20,9 @@ function EmptyDetails(){
 
 function Login({users}) {
 
+  // debug
+  console.log(Users);
+
   // reference to input of user
   const usernameInput = useRef();
   const passwordInput = useRef();
@@ -31,10 +36,10 @@ function Login({users}) {
     let userName = usernameInput.current.value;
     let password = passwordInput.current.value;
   
-    for (var key in users){
+    for (var key in Users){
       // if the username and the password are correct, move to the chats page. (working!)
-        if (userName === key && password === users[key].password){
-          navigate("/chats",{state: {password: users[key].password, nickname: users[key].nickname, image: users[key].image, friends: users[key].friends}});
+        if (userName === key && password === Users[key].password){
+          navigate("/chats",{state: {password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});
         }
       }
       if(userName==="" || password ===""){
@@ -72,7 +77,7 @@ function Login({users}) {
           
           <div>
             <label> Not registred?&nbsp; </label>
-            <a href="/regist">Click here</a>
+            <button className="button_of_link" onClick={()=>{navigate("/regist")}}>Click here</button>
             <label>&nbsp;to register </label> 
           </div>
         </form>

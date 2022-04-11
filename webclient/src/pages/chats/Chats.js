@@ -3,6 +3,7 @@ import "./Chats.css";
 import SideBar from './SideBar';
 import { useLocation } from 'react-router-dom';
 import ChatScreen from "./ChatScreen.js";
+import Users from '../../Users';
 
 function ErrorChat(){
   return(
@@ -16,6 +17,10 @@ function ErrorChat(){
 
 // person is the object with the fields of the user (image, friends, nickname...).
 export default function Chats({}) {
+
+  // debug
+  console.log(Users);
+
   // loaction
   const location= useLocation();
   

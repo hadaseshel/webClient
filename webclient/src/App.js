@@ -8,19 +8,16 @@ import {
 import Chats from "./pages/chats/Chats";
 import Regist from './pages/registration/Regist.js';
 import Login from './pages/login/Login';
+import Users from './Users';
 
 function App() {
-  /* the const */
-  const hadasFriends = [{nickname: 'hailoosh', image: null, chat: null},
-                        {nickname: 'shiroosh', image: null, chat: null}]
-  const users = {'hadaseshel': {password: '12ha', nickname: 'doosa', image: "hadasfoto.png", friends: hadasFriends},
-                  'hailzanbar': {password: '34ha', nickname: 'hailosh', image: "hailfoto.jpeg", friends: []}};
+  console.log(Users);
                   
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login users={users}/>} />
-        <Route path="/regist" element={<Regist users={users} />} />
+        <Route path="/" element={<Login users={Users}/>} />
+        <Route path="/regist" element={<Regist users={Users} />} />
         <Route path="/chats" element={<Chats />} />
       </Routes>
     </>
