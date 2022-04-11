@@ -3,11 +3,6 @@ import "./SideBar.css";
 import SideBarChat from "./SideBarChat.js";
 import { useRef, useState } from "react";
 
-
-function Image(){
-
-}
-
 function Avatar() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -27,15 +22,6 @@ function AvatarPlusIcon() {
 }
 
 function SideBar({user}) {
-
-    // state to hendle error
-    const [image, setImage] = useState("");
-    /*
-    if(user.image!=null){
-        setImage("image");
-    }*/
-    console.log(user.password);
-    console.log(user.friends);
     const chats = user.friends;
 
     // sync the chat list in the sidebar with the user's friends.
@@ -47,7 +33,7 @@ function SideBar({user}) {
         <div className="sidebar">
 
             <div className="sidebar_header">
-                {(image!="")?<Image/>:<Avatar/>}
+                {(user.image!==null)?<img id="userimag" src={user.image} />:<Avatar/>}
                 <div className="sidebar_headerR">
                     <button type="button" class="btn btn-outline-secondary btn-sm"><AvatarPlusIcon /></button>
                 </div>
