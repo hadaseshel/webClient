@@ -5,7 +5,6 @@ import { useRef, useState } from "react";
 import Avatar from "./icons/Avatar";
 import AvatarPlusIcon from "./icons/AvatarPlusIcon";
 
-
 function SideBar({user}) {
     const chats = user.friends;
 
