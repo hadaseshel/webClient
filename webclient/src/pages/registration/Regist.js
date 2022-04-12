@@ -178,7 +178,7 @@ function Regist({users}) {
         </div>
         
         <div>
-          <button type="button" className="btn btn-success" onClick={checkRegister}>Register</button>
+          <button type="submit" className="btn btn-success" onClick={checkRegister}>Register</button>
         </div>
         
         <div>

@@ -4,3 +4,11 @@
     cursor: pointer;
     border-bottom: 1px solid #f6f6f6 ;
 }
+
+.sidechat_info{
+    display: flex;
+}
+
+.info{
+    margin-left: 10px;
+}

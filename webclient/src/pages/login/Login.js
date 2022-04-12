@@ -72,7 +72,7 @@ function Login({users}) {
           </div>
           
           <div>
-            <button type="button" className="btn btn-success" onClick={checkLogin}>Login</button>
+            <button type="submit" className="btn btn-success" onClick={checkLogin}>Login</button>
           </div>
           
           <div>
