@@ -174,7 +174,6 @@ function Regist({users}) {
           <div className="col-sm-8">
             <label for="img" id="btnimag">Select image</label>
             <input type="file" id="img" accept="image/png, image/jpeg" ref={target} onChange={(e)=>HandelUpload(e)}/>
-            {/*foto!==null && <img src={foto} />*/}
           </div>
         </div>
         

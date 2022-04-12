@@ -15,14 +15,14 @@ function SideBar({user}) {
 
     // update the chats list with the new contact
     const addChat = function(newContact) {
-        console.log("add chat");
-        console.log(chats);
-        chats.push(newContact)
-        setChatList(chats);
+        // change the state of the chatList
+        let newArray=[...chatList];
+        newArray.push(newContact);
+        setChatList(newArray);
+        // add to the list of chat in the users Array
+        chats.push(newContact);
         console.log(chats);
     }
-
-    console.log("yohoooo");
 
     return (
         <div className="sidebar">

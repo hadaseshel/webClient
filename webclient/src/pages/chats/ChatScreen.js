@@ -20,10 +20,10 @@ function ChatScreen(){
             </div>
 
             <div className="chat_footer">
-                <button type="button" className="btn btn-outline-secondary btn-sm"><IcionPaperclip /></button>
                 <from className="chat_footer_from">
+                <button type="button" className="btn btn-outline-success btn-sm"><IcionPaperclip />Upload</button>
                     <input type="text" placeholder="New message here.."></input>
-                    <button type="button" className="btn btn-outline-secondary btn-sm"><Send /></button>
+                    <button type="button" className="btn btn-outline-success btn-sm"><Send />Send</button>
                 </from>
             </div>
 
