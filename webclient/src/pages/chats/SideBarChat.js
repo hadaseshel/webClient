@@ -7,10 +7,12 @@ function SideBarChat({nickname, image, chat}) {
         <div className="sidebar_chat">
             <div className="sidechat_info">
                 <div className="friendImage">
-                    <Avatar/>
+                {(image!==null)?<img id="userimag" src={image} />:<Avatar/>}
                 </div>
                 <div className="info">
-                    <h2>{nickname}</h2>
+                    <h3>{nickname}
+                        <span className="last_message_timedate">00:00</span>
+                    </h3>
                     <p>Last message...</p>
                 </div>
             </div>

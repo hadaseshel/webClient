@@ -17,10 +17,6 @@ function ErrorChat(){
 
 // person is the object with the fields of the user (image, friends, nickname...).
 export default function Chats({}) {
-
-  // debug
-  console.log(Users);
-
   // loaction
   const location= useLocation();
   

@@ -11,7 +11,6 @@ import Login from './pages/login/Login';
 import Users from './Users';
 
 function App() {
-  console.log(Users);
                   
   return (
     <>

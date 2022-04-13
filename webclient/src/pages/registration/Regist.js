@@ -128,9 +128,9 @@ function Regist({users}) {
     setErrorPassrowdCoinfirm("the password is not eqal to the confirm passraword");
     return;
   }
-  const user = {password: password, nickname: nickName, image: foto, friends: []};
+  const user = {username:userName, password: password, nickname: nickName, image: foto, friends: []};
   Users[userName]=user;
-  navigate("/chats",{state: {password: password, nickname: nickName, image: foto, friends: []}});
+  navigate("/chats",{state: {username: userName ,password: password, nickname: nickName, image: foto, friends: []}});
 }
     return (
     <div className = "container"> 
@@ -178,7 +178,7 @@ function Regist({users}) {
         </div>
         
         <div>
-          <button type="submit" className="btn btn-success" onClick={checkRegister}>Register</button>
+          <button type="button" className="btn btn-success" onClick={checkRegister}>Register</button>
         </div>
         
         <div>

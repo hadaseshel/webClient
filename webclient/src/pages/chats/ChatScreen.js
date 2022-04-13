@@ -42,9 +42,9 @@ function ChatScreen(){
 
             <div className="chat_footer">
                 <from className="chat_footer_from">
-                    <button type="button" className="btn btn-outline-success btn-sm"><IcionPaperclip />Upload</button>
+                    <button type="button" className="btn btn-outline-secondary btn-sm"><IcionPaperclip />Upload</button>
                     <input type="text" value={message} onChange={(e)=>sendMessage(e.target.value)} placeholder="New message here.."></input>
-                    <button type="submit" onClick={sendMessage} className="btn btn-outline-success btn-sm"><Send />Send</button>
+                    <button type="submit" onClick={sendMessage} className="btn btn-outline-secondary btn-sm"><Send />Send</button>
                 </from>
             </div>
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Avatar from "./icons/Avatar";
 import NewChat from "./NewChat";
 import ChatListUpdate from "./ChatListUpdate";
+import Users from "../../Users";
 
 
 function SideBar({user}) {
@@ -21,7 +22,8 @@ function SideBar({user}) {
         setChatList(newArray);
         // add to the list of chat in the users Array
         chats.push(newContact);
-        console.log(chats);
+        // add mySelf to the other list of friends
+        Users[newContact.username].friends.push(user);
     }
 
     return (
@@ -29,12 +31,11 @@ function SideBar({user}) {
             <div className="sidebar_header">
                 {(user.image!==null)?<img id="userimag" src={user.image} />:<Avatar/>}
                 <div className="sidebar_headerR">
-                    <NewChat addChat={addChat}/>
+                    <NewChat addChat={addChat} user={user}/>
                 </div>
             </div>
 
             <div className="sidebar_chats">
-                {console.log(chatList)}
                 <ChatListUpdate chats={chatList}/>
             </div>
 

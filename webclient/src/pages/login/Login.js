@@ -39,7 +39,7 @@ function Login({users}) {
     for (var key in Users){
       // if the username and the password are correct, move to the chats page. (working!)
         if (userName === key && password === Users[key].password){
-          navigate("/chats",{state: {password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});
+          navigate("/chats",{state: {username: key, password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});
         }
       }
       if(userName==="" || password ===""){
@@ -72,7 +72,7 @@ function Login({users}) {
           </div>
           
           <div>
-            <button type="submit" className="btn btn-success" onClick={checkLogin}>Login</button>
+            <button type="button" className="btn btn-success" onClick={checkLogin}>Login</button>
           </div>
           
           <div>
