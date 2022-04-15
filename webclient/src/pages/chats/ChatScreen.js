@@ -23,12 +23,13 @@ function MessagesList ({messages}) {
         return <Message message={message.message} own={message.own} key={key} />;
     });
     return (
-        <div className="chatsList">
+        <div className="messageList">
             {messageList}
         </div>
     );
 }
 
+// buttonBar of image vido and audio
 function ButtonBar(){
     return(
         <div class="btn-group" role="group" aria-label="Basic example">

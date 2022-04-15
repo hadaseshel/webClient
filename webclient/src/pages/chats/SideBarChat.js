@@ -2,7 +2,7 @@ import React from "react";
 import "./SideBarChat.css";
 import Avatar from "./icons/Avatar";
 
-function SideBarChat({nickname, image, chat,clickOnContact}) {
+function SideBarChat({nickname, image, chat, clickOnContact}) {
     return (
         <div className="sidebar_chat" onClick={clickOnContact(chat)}>
             <div className="sidechat_info">

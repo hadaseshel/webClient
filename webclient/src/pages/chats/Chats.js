@@ -25,9 +25,9 @@ function Chats({}) {
   const [messageList, setMessageList] = useState([{message: "hey, how are you?", own: "me"},{message: "I am good, how are you?", own: "not me"}]);
 
   // it doenst work well - this function is into 
-  const clickOnContact = function(chats){
-    console.log(chats);
-    //let newArray=[...chats];
+  const clickOnContact = function(chat){
+    console.log(chat);
+    //let newArray=[...chat];
     //setMessageList(newArray);
     console.log("on click");
   }
