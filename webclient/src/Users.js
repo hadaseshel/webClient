@@ -1,10 +1,14 @@
+//list of chat
+const hadasCatWitHail=[{message: "hey, how are you?", own: "me"},{message: "I am good, how are you?", own: "not me"}];
+const hailChatWithHadas=[{message: "hey, how are you?", own: "not me"},{message: "I am good, how are you?", own: "me"}]
+
 // list of friends
-const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: "hailfoto.jpeg", chat: []},
+const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: "hailfoto.jpeg", chat: hadasCatWitHail},
 {username: "shira" ,nickname: 'shiroosh', image: null, chat: []}]
 
-const hailzanbarFriends = [];
+const hailzanbarFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: []}];
 
-const shiraFriends = [];
+const shiraFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: []}];
 
 const liaFriends = [];
 

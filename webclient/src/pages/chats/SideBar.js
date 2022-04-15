@@ -7,7 +7,7 @@ import ChatListUpdate from "./ChatListUpdate";
 import Users from "../../Users";
 
 
-function SideBar({user}) {
+function SideBar({user,clickOnContact}) {
 
     const chats = user.friends;
 
@@ -36,7 +36,7 @@ function SideBar({user}) {
             </div>
 
             <div className="sidebar_chats">
-                <ChatListUpdate chats={chatList}/>
+                <ChatListUpdate chats={chatList} clickOnContact={clickOnContact}/>
             </div>
 
         </div>

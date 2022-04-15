@@ -19,10 +19,6 @@ function EmptyDetails(){
 }
 
 function Login({users}) {
-
-  // debug
-  console.log(Users);
-
   // reference to input of user
   const usernameInput = useRef();
   const passwordInput = useRef();

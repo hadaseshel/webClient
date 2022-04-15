@@ -7,6 +7,10 @@
 
 .sidechat_info{
     display: flex;
+    outline-color: black;
+}
+.info:hover{
+    color: purple;
 }
 
 .info{
