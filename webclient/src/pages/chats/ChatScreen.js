@@ -2,10 +2,11 @@ import Avatar from "./icons/Avatar";
 import "./ChatScreen.css";
 import Send from "./icons/Send";
 import IcionPaperclip from "./icons/IconPaperclip";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "./icons/Image";
 import CameraReels from "./icons/CameraReels";
 import Mic from "./icons/Mic";
+import { useParams } from "react-router-dom";
 
 // one message
 function Message({message,own}){
@@ -18,6 +19,7 @@ function Message({message,own}){
 
 //create list of message
 function MessagesList ({messages}) {
+
     // sync the chat list in the sidebar with the user's friends.
     const messageList = messages.map((message, key) => {
         return <Message message={message.message} own={message.own} key={key} />;
@@ -41,9 +43,11 @@ function ButtonBar(){
 }
 
 
-function ChatScreen({user, messageList}){
+function ChatScreen({nickname, messageList}){
     // load the page with the new massege list after click on contact
-    const [message,setMessage,]=useState("");
+    const [message,setMessage]=useState("");
+
+
 
     // send message
     const sendMessage=function(e){
@@ -54,7 +58,7 @@ function ChatScreen({user, messageList}){
         <div className="chatScreen">
             <div className="chat_header">
                 <Avatar/>
-                <div className="chat_headerinfo">NAME</div>
+                <div className="chat_headerinfo">{nickname}</div>
             </div>
 
             <div className="chat_body">

@@ -1,13 +1,21 @@
 import React from "react";
 import "./SideBarChat.css";
 import Avatar from "./icons/Avatar";
+import ChatScreen from "./ChatScreen";
 
-function SideBarChat({nickname, image, chat, clickOnContact}) {
+function SideBarChat({nickname, image, chat, createScreen}) {
+
+    // function that insert the chat screen when we click on a sidebar chat to the function "setChatScreen" in chats.js
+    const clickOnChat = function() {
+        const newChatScreen = <ChatScreen nickname={nickname} messageList={chat}/>;
+        createScreen(newChatScreen);
+    }
+
     return (
-        <div className="sidebar_chat" onClick={clickOnContact(chat)}>
+        <div className="sidebar_chat" onClick={clickOnChat}>
             <div className="sidechat_info">
                 <div className="friendImage">
-                {(image!==null)?<img id="userimag" src={image} />:<Avatar/>}
+                    {(image!==null)?<img id="userimag" src={image} />:<Avatar/>}
                 </div>
                 <div className="info">
                     <h3>{nickname} 
@@ -17,6 +25,7 @@ function SideBarChat({nickname, image, chat, clickOnContact}) {
                 </div>
             </div>
         </div>
+        
     );
 }
 
