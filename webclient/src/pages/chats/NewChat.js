@@ -34,12 +34,13 @@ export default function NewChat( {addChat,user}) {
     const [errorCanotAddMySelf, setErrorCanotAddMySelf] = useState("");
     const [errorAlreadyHaveTheContact, setErrorAlreadyHaveTheContact] = useState("");
 
-    const addContact = function(){
-        // initlation of the alrt
+    const clearErorrs = function(){
         setErrorCanotAddMySelf("");
         setErrorUserIsNotExist("");
         setErrorAlreadyHaveTheContact("");
+    }
 
+    const addContact = function(){
         // the input of the new contact
         let contactName = contactInput.current.value;
         console.log(user.username);
@@ -86,16 +87,16 @@ export default function NewChat( {addChat,user}) {
     // Returns a button that pops up a modal that allows you to add a new contact.
     return (
         <div className="newchat">
-            <button type="button" className="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addChat">
                 <AvatarPlusIcon />
             </button>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="addChat" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                  <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Add new contact</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={clearErorrs}></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-group row">
@@ -110,7 +111,7 @@ export default function NewChat( {addChat,user}) {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={clearErorrs}>Close</button>
                             <button type="submit" className="btn btn-primary" onClick={addContact}>Add</button>
                         </div>
                     </div>

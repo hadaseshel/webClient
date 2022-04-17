@@ -21,7 +21,7 @@ function SideBar({user,clickOnContact}) {
         newArray.push(newContact);
         setChatList(newArray);
         // add to the list of chat in the users Array
-        chats.push(newContact);
+        Users[user.username].friends.push(newContact);
         // add mySelf to the other list of friends
         Users[newContact.username].friends.push(user);
     }
@@ -34,7 +34,6 @@ function SideBar({user,clickOnContact}) {
                     <NewChat addChat={addChat} user={user}/>
                 </div>
             </div>
-
             <div className="sidebar_chats">
                 <ChatListUpdate chats={chatList} clickOnContact={clickOnContact}/>
             </div>
