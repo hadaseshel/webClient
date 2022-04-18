@@ -1,14 +1,15 @@
 //list of chat
-const hadasCatWitHail=[{message: "hey, how are you???", own: "me", time:"12:00"},{message: "I am good, how are you?", own: "not me", time:"12:05"}];
-const hailChatWithHadas=[{message: "hey, how are you?", own: "not me", time:"12:00"},{message: "I am good, how are you?", own: "me", time:"12:05"}];
-const HadasChatWithshira=[{message: "hey, how are you???", own: "not me", time:"12:40"},{message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
-const shiraChatWithHadas=[{message: "hey, how are you???", own: "me", time:"12:40"},{message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
+// video, audio , image, text
+const hadasCatWitHail=[{type:"text",message: "hey, how are you???", own: "me", time:"12:00"},{type:"text" ,message: "I am good, how are you?", own: "not me", time:"12:05"}];
+const hailChatWithHadas=[{type:"text",message: "hey, how are you?", own: "not me", time:"12:00"},{type:"text", message: "I am good, how are you?", own: "me", time:"12:05"}];
+const HadasChatWithshira=[{type:"text",message: "hey, how are you???", own: "not me", time:"12:40"},{type:"text",message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
+const shiraChatWithHadas=[{type:"text",message: "hey, how are you???", own: "me", time:"12:40"},{type:"text",message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
 
 // list of friends
 const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: "hailfoto.jpeg", chat: hadasCatWitHail},
-{username: "shira" ,nickname: 'shiroosh', image: null, chat: shiraChatWithHadas}]
+{username: "shira" ,nickname: 'shiroosh', image: null, chat: HadasChatWithshira}]
 
-const hailzanbarFriends = [{username:'hadaseshel', nickname: 'doosa', image: "hadasfoto.png", chat: HadasChatWithshira}];
+const hailzanbarFriends = [{username:'hadaseshel', nickname: 'doosa', image: "hadasfoto.png", chat: hailChatWithHadas}];
 
 const shiraFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: shiraChatWithHadas}];
 
