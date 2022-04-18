@@ -11,7 +11,7 @@ const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: 
 
 const hailzanbarFriends = [{username:'hadaseshel', nickname: 'doosa', image: "hadasfoto.png", chat: hailChatWithHadas}];
 
-const shiraFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: shiraChatWithHadas}];
+const shiraFriends = [{username:'hadaseshel', nickname: 'doosa', image: "hadasfoto.png", chat: shiraChatWithHadas}];
 
 const liaFriends = [];
 

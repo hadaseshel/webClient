@@ -49,7 +49,6 @@ function ChatScreen({usernameinlogin, username, nickname,image, messageList,crea
         }
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
-            console.log(Users[usernameinlogin].friends[i].username);
             if (Users[username].friends[i].username===usernameinlogin){
                 Users[username].friends[i].chat.push({message: massege.current.value, own: "not me",time:time});
                 break;
