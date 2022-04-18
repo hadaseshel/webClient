@@ -81,3 +81,25 @@ button{
 .button_of_link:hover{
   color:  purple;
 }
+
+#img{
+  display:none;
+}
+
+#video{
+  display:none;
+}
+
+#audio{
+  display:none;
+}
+
+.purple{
+  background-color: purple;
+  border-color: purple;
+}
+
+.purple:hover{
+  background-color: rgb(80, 4, 80);
+  border-color: rgb(80, 4, 80);
+}

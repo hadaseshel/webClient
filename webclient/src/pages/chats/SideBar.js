@@ -35,7 +35,7 @@ function SideBar({user, createScreen}) {
                 </div>
             </div>
             <div className="sidebar_chats">
-                <ChatListUpdate chats={chatList} createScreen={createScreen}/>
+                <ChatListUpdate usernameinlogin={user.username} chats={chatList} createScreen={createScreen}/>
             </div>
 
         </div>

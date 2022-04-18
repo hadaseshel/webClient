@@ -3,11 +3,11 @@ import "./SideBarChat.css";
 import Avatar from "./icons/Avatar";
 import ChatScreen from "./ChatScreen";
 
-function SideBarChat({nickname, image, chat, createScreen}) {
+function SideBarChat({usernameinlogin, username, nickname, image, chat, createScreen}) {
 
     // function that insert the chat screen when we click on a sidebar chat to the function "setChatScreen" in chats.js
     const clickOnChat = function() {
-        const newChatScreen = <ChatScreen nickname={nickname} messageList={chat}/>;
+        const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image} messageList={chat} createScreen={createScreen}/>;
         createScreen(newChatScreen);
     }
 
