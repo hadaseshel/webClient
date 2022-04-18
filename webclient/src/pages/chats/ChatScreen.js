@@ -58,6 +58,8 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image}
                                             messageList={newArray} createScreen={createScreen} updateLastM={updateLastM}/>;
         createScreen(newChatScreen);
+
+        // update the chat with the new last message in order to show last message in the sidebarChat
         updateLastM(newArray);
     }
 

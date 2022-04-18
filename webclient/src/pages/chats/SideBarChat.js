@@ -5,18 +5,13 @@ import ChatScreen from "./ChatScreen";
 
 function SideBarChat({usernameinlogin, username, nickname, image, chat, createScreen}) {
 
-    // render this sidebar chat when a new message is sended, in order to update the "last message"
+    // render this sidebar chat when a new message is added to the chat (of "me"), in order to update the "last message"
     const [updChat, setUpdChat] = useState(chat);
-
-    const updateTheChat = function(updateChat) {
-        console.log("in setUpdateChat");
-        setUpdChat(updateChat);
-    }
 
     // function that insert the chat screen when we click on a sidebar chat to the function "setChatScreen" in chats.js
     const clickOnChat = function() {
         const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname}
-                                            image={image} messageList={chat} createScreen={createScreen} updateLastM={updateTheChat}/>;
+                                            image={image} messageList={chat} createScreen={createScreen} updateLastM={setUpdChat}/>;
         createScreen(newChatScreen);
     }
 
