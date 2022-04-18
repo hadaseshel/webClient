@@ -1,15 +1,16 @@
 //list of chat
-const hadasCatWitHail=[{message: "hey, how are you???", own: "me"},{message: "I am good, how are you?", own: "not me"}];
-const hailChatWithHadas=[{message: "hey, how are you?", own: "not me"},{message: "I am good, how are you?", own: "me"}]
-const shiraChatWithHadas=[{message: "hey, how are you???", own: "not me"},{message: "I am fine, how are you?", own: "me"}]
+const hadasCatWitHail=[{message: "hey, how are you???", own: "me", time:"12:00"},{message: "I am good, how are you?", own: "not me", time:"12:05"}];
+const hailChatWithHadas=[{message: "hey, how are you?", own: "not me", time:"12:00"},{message: "I am good, how are you?", own: "me", time:"12:05"}];
+const HadasChatWithshira=[{message: "hey, how are you???", own: "not me", time:"12:40"},{message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
+const shiraChatWithHadas=[{message: "hey, how are you???", own: "me", time:"12:40"},{message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
 
 // list of friends
 const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: "hailfoto.jpeg", chat: hadasCatWitHail},
 {username: "shira" ,nickname: 'shiroosh', image: null, chat: shiraChatWithHadas}]
 
-const hailzanbarFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: []}];
+const hailzanbarFriends = [{username:'hadaseshel', nickname: 'doosa', image: "hadasfoto.png", chat: HadasChatWithshira}];
 
-const shiraFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: []}];
+const shiraFriends = [{username:'hadaseshel', password: '123456Ha', nickname: 'doosa', image: "hadasfoto.png", chat: shiraChatWithHadas}];
 
 const liaFriends = [];
 

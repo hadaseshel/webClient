@@ -8,20 +8,19 @@ import UploadAudio from "./upload/UploadAudio"
 import Users from '../../Users';
 
 // one message
-function Message({message,own}){
+function Message({message,own,time}){
     return(
         <p className={`chat_message ${(own!="me")?"chat_reciever":""}`}>{message}
-            <span className="chat_message_timedate">00:00</span>
+            <span className="chat_message_timedate">{time}</span>
         </p>
     )
 }
 
 //create list of message
 function MessagesList ({messages}) {
-
     // sync the chat list in the sidebar with the user's friends.
     const messageList = messages.map((message, key) => {
-        return <Message message={message.message} own={message.own} key={key} />;
+        return <Message message={message.message} own={message.own} time={message.time} key={key} />;
     });
     return (
         <div className="messageList">
@@ -31,26 +30,20 @@ function MessagesList ({messages}) {
 }
 
 function ChatScreen({usernameinlogin, username, nickname,image, messageList,createScreen}){
-    // load the page with the new massege list after click on contact
-    const [message,setMessage]=useState(messageList);
-
-
-
-    // send message
-    //const sendMessage=function(e){
-    //} 
     const massege=useRef();
 
     // need to take care on the rander
     const send = function(){
         let newArray;
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes();
+
         //need to take care of push to the list by the proper chat contact
         for(let i=0; i<Users[usernameinlogin].friends.length;i++){
             console.log(Users[usernameinlogin].friends[i].username);
             if (Users[usernameinlogin].friends[i].username===username){
-                Users[usernameinlogin].friends[i].chat.push({message: massege.current.value, own: "me"});
+                Users[usernameinlogin].friends[i].chat.push({message: massege.current.value, own: "me", time:time});
                 newArray=[...Users[usernameinlogin].friends[i].chat];
-                setMessage(newArray);
                 break;
             }
         }
@@ -58,7 +51,7 @@ function ChatScreen({usernameinlogin, username, nickname,image, messageList,crea
         for(let i=0; i<Users[username].friends.length;i++){
             console.log(Users[usernameinlogin].friends[i].username);
             if (Users[username].friends[i].username===usernameinlogin){
-                Users[username].friends[i].chat.push({message: massege.current.value, own: "not me"});
+                Users[username].friends[i].chat.push({message: massege.current.value, own: "not me",time:time});
                 break;
             }
         }

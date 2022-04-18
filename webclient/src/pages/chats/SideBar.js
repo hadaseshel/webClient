@@ -23,7 +23,7 @@ function SideBar({user, createScreen}) {
         // add to the list of chat in the users Array
         Users[user.username].friends.push(newContact);
         // add mySelf to the other list of friends
-        Users[newContact.username].friends.push(user);
+        Users[newContact.username].friends.push({username:user.username, nickname: user.nickname, image: user.image, chat: []});
     }
 
     return (

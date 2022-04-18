@@ -18,10 +18,8 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
                     {(image!==null)?<img id="userimag" src={image} />:<Avatar/>}
                 </div>
                 <div className="info">
-                    <h3>{nickname} 
-                        <span className="last_message_timedate">00:00</span>
-                    </h3>
-                    <p>Last message...</p>
+                    <h3>{nickname}</h3>
+                    <div className="last_message">{(chat[chat.length - 1].own=="me")?"me":nickname}:{chat[chat.length - 1].message}<span className="last_message_timedate">{chat[chat.length - 1].time}</span></div>
                 </div>
             </div>
         </div>

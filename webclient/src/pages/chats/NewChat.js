@@ -43,8 +43,6 @@ export default function NewChat( {addChat,user}) {
     const addContact = function(){
         // the input of the new contact
         let contactName = contactInput.current.value;
-        console.log(user.username);
-
         if(contactName === user.username){
             setErrorUserIsNotExist("");
             setErrorAlreadyHaveTheContact("");
