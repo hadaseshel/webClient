@@ -29,7 +29,7 @@ function MessagesList ({messages}) {
     );
 }
 
-function ChatScreen({usernameinlogin, username, nickname,image, messageList,createScreen}){
+function ChatScreen({usernameinlogin, username, nickname, image, messageList,createScreen, updateLastM}){
     const massege=useRef();
 
     // need to take care on the rander
@@ -55,8 +55,10 @@ function ChatScreen({usernameinlogin, username, nickname,image, messageList,crea
             }
         }
         console.log(Users);
-        const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image} messageList={newArray} createScreen={createScreen}/>;
+        const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image}
+                                            messageList={newArray} createScreen={createScreen} updateLastM={updateLastM}/>;
         createScreen(newChatScreen);
+        updateLastM(newArray);
     }
 
     return(
