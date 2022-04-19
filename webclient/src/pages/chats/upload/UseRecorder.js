@@ -41,7 +41,7 @@ function UseRecorder() {
             setIsRecording(true);
 
             // Change the caption on the record button
-            setRecordState("Recording...");
+            setRecordState("Recording... Click To Stop");
         } else {
             setIsRecording(false);
             setRecordState("Record Audio");
