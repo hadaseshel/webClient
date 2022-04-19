@@ -33,7 +33,8 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
     const massege=useRef();
 
     // need to take care on the rander
-    const send = function(){
+    const send = function({msgType, msg}){
+        console.log("my type: " + msgType);
         let newArray;
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes();
@@ -42,7 +43,7 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         for(let i=0; i<Users[usernameinlogin].friends.length;i++){
             console.log(Users[usernameinlogin].friends[i].username);
             if (Users[usernameinlogin].friends[i].username===username){
-                Users[usernameinlogin].friends[i].chat.push({message: massege.current.value, own: "me", time:time});
+                Users[usernameinlogin].friends[i].chat.push({type:msgType, message: msg, own: "me", time:time});
                 newArray=[...Users[usernameinlogin].friends[i].chat];
                 break;
             }
@@ -50,7 +51,7 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                Users[username].friends[i].chat.push({message: massege.current.value, own: "not me",time:time});
+                Users[username].friends[i].chat.push({message: msg, own: "not me",time:time});
                 break;
             }
         }
@@ -77,12 +78,13 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
             <div className="chat_footer">
                 <div className="chat_footer_from">
                     {/*<button type="button" className="btn btn-outline-secondary btn-sm"><IcionPaperclip />Upload</button>*/}
-                    <UploadImage/>
-                    <UploadVideo/>
+                    <UploadImage send={send}/>
+                    <UploadVideo send={send}/>
                     <UploadAudio/>
                     {/*<input type="text" value={message} onChange={(e)=>sendMessage(e.target.value)} placeholder="New message here.."></input>*/}
                     <input type="text" ref={massege} placeholder="New message here.."></input>
-                    <button type="submit" onClick={send} className="btn btn-outline-secondary btn-sm"><Send />Send</button>
+                    <button type="submit" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
+                        className="btn btn-outline-secondary btn-sm"><Send />Send</button>
                 </div>
             </div>
         </div>

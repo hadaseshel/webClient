@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import Image from "../icons/Image";
+import "./Upload.css";
 
-function UploadImage(){
+function UploadImage({send}){
     const[foto,setFoto] = useState(null);
     const target = useRef(null);
 
@@ -36,7 +37,7 @@ function UploadImage(){
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary">Send</button>
+                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Image", msg: <img id="sendimage" src={foto}/>})}}>Send</button>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 //list of chat
 // video, audio , image, text
-const hadasCatWitHail=[{type:"text",message: "hey, how are you???", own: "me", time:"12:00"},{type:"text" ,message: "I am good, how are you?", own: "not me", time:"12:05"}];
-const hailChatWithHadas=[{type:"text",message: "hey, how are you?", own: "not me", time:"12:00"},{type:"text", message: "I am good, how are you?", own: "me", time:"12:05"}];
-const HadasChatWithshira=[{type:"text",message: "hey, how are you???", own: "not me", time:"12:40"},{type:"text",message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
-const shiraChatWithHadas=[{type:"text",message: "hey, how are you???", own: "me", time:"12:40"},{type:"text",message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
+const hadasCatWitHail=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:00"},{type:"Text" ,message: "I am good, how are you?", own: "not me", time:"12:05"}];
+const hailChatWithHadas=[{type:"Text",message: "hey, how are you?", own: "not me", time:"12:00"},{type:"Text", message: "I am good, how are you?", own: "me", time:"12:05"}];
+const HadasChatWithshira=[{type:"Text",message: "hey, how are you???", own: "not me", time:"12:40"},{type:"Text",message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
+const shiraChatWithHadas=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:40"},{type:"Text",message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
 
 // list of friends
 const hadaseshelFriends = [{username: "hailzanbar" ,nickname: 'hailosh', image: "hailfoto.jpeg", chat: hadasCatWitHail},

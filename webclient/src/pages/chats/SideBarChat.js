@@ -15,6 +15,8 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
         createScreen(newChatScreen);
     }
 
+    const lastMsg = updChat[updChat.length - 1]
+
 
     return (
         <div className="sidebar_chat" onClick={clickOnChat}>
@@ -25,9 +27,10 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
                 <div className="info">
                     <h3>{nickname}</h3>
                     {(chat.length===0)?"":
-                    <div className="last_message">{(updChat[updChat.length - 1].own=="me")?"me":(nickname)}:
-                                                    {" " + updChat[updChat.length - 1].message}<span className="last_message_timedate">
-                                                    {updChat[updChat.length - 1].time}</span>
+                    <div className="last_message">{(lastMsg.own == "me")?"me":(nickname)}:
+                                                    {(lastMsg.type == "Text")?(" " + lastMsg.message):(" " + lastMsg.type)}
+                                                    <span className="last_message_timedate">
+                                                    {lastMsg.time}</span>
                     </div>}
                 </div>
             </div>

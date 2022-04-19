@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import CameraReels from "../icons/CameraReels";
+import "./Upload.css";
 
-function UploadVideo(){
+function UploadVideo({send}){
     const[video,setVideo] = useState(null);
     const target = useRef(null);
 
@@ -36,7 +37,9 @@ function UploadVideo(){
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary">Send</button>
+                        <button type="submit" className="btn btn-primary" 
+                        onClick={() => {send({msgType: "Video", msg: <video id="sendvideo" src={video}/>})}}>
+                            Send</button>
                     </div>
                 </div>
             </div>

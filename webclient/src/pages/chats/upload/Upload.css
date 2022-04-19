@@ -1,0 +1,11 @@
+#sendimage{
+    width: 100px;
+    height: 70px;
+    border-color: black;
+}
+
+#sendvideo{
+    width: 100px;
+    height: 70px;
+    border-color: black;
+}
