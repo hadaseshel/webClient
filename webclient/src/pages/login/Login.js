@@ -33,11 +33,13 @@ function Login({users}) {
     let password = passwordInput.current.value;
   
     for (var key in Users){
+      console.log(key);
       // if the username and the password are correct, move to the chats page. (working!)
         if (userName === key && password === Users[key].password){
           navigate("/chats",{state: {username: key, password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});
+          return;
         }
-      }
+    }
       if(userName==="" || password ===""){
         setError("");
         setEmpty("empty");
@@ -45,12 +47,20 @@ function Login({users}) {
         setEmpty("");
         setError("error");
       }
-    }
+  }
+
+    // handle the enter key , login by press in enter key
+    const handleKeypress = e => {
+      //it triggers by pressing the enter key to send the massage
+      if (e.key === "Enter") {
+        checkLogin();
+      }
+    };
 
     return (
     <div className = "container"> 
         <img src="logoHioosh.png" id ="logo" width = "170" height= "170"></img>
-        <form id = "login">
+        <div id = "login" onKeyPress={handleKeypress}>
           {(error!="")?(<WongDetails/>):""}
           {(empty!="")?(<EmptyDetails/>):""}
           <div className="form-group row">
@@ -76,7 +86,7 @@ function Login({users}) {
             <button className="button_of_link" onClick={()=>{navigate("/regist")}}>Click here</button>
             <label>&nbsp;to register </label> 
           </div>
-        </form>
+        </div>
         <div className="form-group row" id="last div">&nbsp;</div>
      </div>
     );

@@ -26,9 +26,6 @@ function Chats({}) {
   const createChatScreen = function(newScreen) {
     setChatScreen(newScreen);
   }
-  
-  //creat state into make the componenet of body of ChatScreen to show the relevant chat by the contact click on
-  const [messageList, setMessageList] = useState([{message: "hey, how are you?", own: "me"},{message: "I am good, how are you?", own: "not me"}]);
 
   if (location.state==null){
     return(<ErrorChat/>);

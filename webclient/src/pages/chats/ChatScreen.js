@@ -51,7 +51,7 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                Users[username].friends[i].chat.push({message: msg, own: "not me",time:time});
+                Users[username].friends[i].chat.push({type:msgType, message: msg, own: "not me",time:time});
                 break;
             }
         }
@@ -63,6 +63,14 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // update the chat with the new last message in order to show last message in the sidebarChat
         updateLastM(newArray);
     }
+
+    // handle the enter key , send message by press in enter key
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key to send the massage
+        if (e.key === "Enter") {
+            send({msgType: "Text", msg: massege.current.value})
+        }
+    };
 
     return(
         <div className="chatScreen">
@@ -82,8 +90,8 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
                     <UploadVideo send={send}/>
                     <UploadAudio/>
                     {/*<input type="text" value={message} onChange={(e)=>sendMessage(e.target.value)} placeholder="New message here.."></input>*/}
-                    <input type="text" ref={massege} placeholder="New message here.."></input>
-                    <button type="submit" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
+                    <input type="text" onKeyPress={handleKeypress} ref={massege} placeholder="New message here.."></input>
+                    <button type="botton" id="send_text" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
                         className="btn btn-outline-secondary btn-sm"><Send />Send</button>
                 </div>
             </div>
