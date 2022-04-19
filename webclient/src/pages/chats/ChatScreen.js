@@ -43,18 +43,23 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         for(let i=0; i<Users[usernameinlogin].friends.length;i++){
             console.log(Users[usernameinlogin].friends[i].username);
             if (Users[usernameinlogin].friends[i].username===username){
-                Users[usernameinlogin].friends[i].chat.push({type:msgType, message: msg, own: "me", time:time});
+                Users[usernameinlogin].friends[i].chat.push({type:msgType, message:msg, own:"me", time:time});
                 newArray=[...Users[usernameinlogin].friends[i].chat];
                 break;
             }
         }
+
+    
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                Users[username].friends[i].chat.push({type:msgType, message: msg, own: "not me",time:time});
+                //console.log("before push image to the friend chat: " + Users[username].friends[i]);
+                Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time});
+                //console.log("after push image to the friend chat: " + Users[username].friends[i]);
                 break;
             }
         }
+
         console.log(Users);
         const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image}
                                             messageList={newArray} createScreen={createScreen} updateLastM={updateLastM}/>;
