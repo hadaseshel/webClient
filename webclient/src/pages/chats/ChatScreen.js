@@ -69,6 +69,14 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         updateLastM(newArray);
     }
 
+    // handle the enter key , send message by press in enter key
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key to send the massage
+        if (e.key === "Enter") {
+            send({msgType: "Text", msg: massege.current.value})
+        }
+    };
+
     return(
         <div className="chatScreen">
             <div className="chat_header">
@@ -87,8 +95,8 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
                     <UploadVideo send={send}/>
                     <UploadAudio/>
                     {/*<input type="text" value={message} onChange={(e)=>sendMessage(e.target.value)} placeholder="New message here.."></input>*/}
-                    <input type="text" ref={massege} placeholder="New message here.."></input>
-                    <button type="submit" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
+                    <input type="text" onKeyPress={handleKeypress} ref={massege} placeholder="New message here.."></input>
+                    <button type="botton" id="send_text" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
                         className="btn btn-outline-secondary btn-sm"><Send />Send</button>
                 </div>
             </div>

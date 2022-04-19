@@ -132,10 +132,19 @@ function Regist({users}) {
   Users[userName]=user;
   navigate("/chats",{state: {username: userName ,password: password, nickname: nickName, image: foto, friends: []}});
 }
+
+    // handle the enter key , regist by press in enter key
+    const handleKeypress = e => {
+      //it triggers by pressing the enter key to send the massage
+      if (e.key === "Enter") {
+        checkRegister();
+      }
+    };
+
     return (
     <div className = "container"> 
       <img src="logoHioosh.png" id ="logo" width = "170" height= "170"></img>
-      <form id = "register">
+      <div id = "register" onKeyPress={handleKeypress}>
         {(errorPassrowdCoinfirm!="")?(<ErrorPassrowdCoinfirm/>):""}
         {(empty!="")?(<EmptyDetails/>):""}
         {(nameInUse!="")?(<UserNameInUsed/>):""}
@@ -172,7 +181,7 @@ function Regist({users}) {
         <div className="form-group row">
           <label className="col-sm-4 col-form-label"> Upload image </label> 
           <div className="col-sm-8">
-            <label for="img" id="btnimag">Select image</label>
+            <label htmlFor="img" id="btnimag">Select image</label>
             <input type="file" id="img" accept="image/png, image/jpeg" ref={target} onChange={(e)=>HandelUpload(e)}/>
           </div>
         </div>
@@ -186,7 +195,7 @@ function Regist({users}) {
           <button className="button_of_link" onClick={()=>{navigate("/")}}>Click here</button>
           <label>&nbsp;to login </label> 
         </div>
-      </form>
+      </div>
       <div className="form-group row" id="last div">&nbsp;</div>
    </div>);
   }
