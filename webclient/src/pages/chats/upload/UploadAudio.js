@@ -1,16 +1,17 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import UseRecorder from "./UseRecorder";
 import Mic from "../icons/Mic";
 
-function UploadAudio(){
-    const[audio,setAudio] = useState(null);
-    const target = useRef(null);
+function UploadAudio({send}){
 
-    const HandelUpload = (e) => {
-        const uploaded = e.target.files[0];
-        setAudio(URL.createObjectURL(uploaded));
-    }
+    let [audioURL, isRecording, startStopRecording] = UseRecorder();
+
+    // in order to change the caption on the record button
+    const [recordState, setRecordState] = useState("Record Audio");
+
 
     return(
+        
         <div className="upladeAudio">
         <button type="button" className="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#uploadAudio">
             <Mic /> Audio
@@ -26,23 +27,25 @@ function UploadAudio(){
                     <div className="modal-body">
                         <div className="form-group row">
                             <div className="col-sm-12">
-                                {/* errors here */}
+                                {/* errors here*/ }
                             </div>
                             <div className="col-sm-12">
-                                <label htmlFor="audio" className="btn btn-primary"><Mic/> Record Audio</label>
-                                <input type="file" id="audio" ref={target} onChange={(e)=>HandelUpload(e)}/>
+                                <label htmlFor="audio" className="btn btn-primary" onClick={() => {startStopRecording({setRecordState: setRecordState})}}><Mic/> {recordState} </label>
+                        
                             </div>
                         </div>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary">Send</button>
+                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Audio", msg: audioURL})}}>Send</button>
                     </div>
                 </div>
             </div>
         </div>
         </div>
     );
+    
 }
+
 
 export default UploadAudio;

@@ -7,15 +7,15 @@ import UploadVideo from "./upload/UploadVideo"
 import UploadAudio from "./upload/UploadAudio"
 import Users from '../../Users';
 
-const MessageByType = function({type,message}){
-    if(type==="Image"){
+const MessageByType = function({ type, message }){
+    if(type === "Image"){
         return(
         <img id="sendimage" src={message}/>
         );
-    }else if(type==="Video"){
+    }else if(type === "Video"){
         return(<video id="sendvideo" src={message} controls/>);
-    }else if(type==="audio"){
-        return(<span></span>);
+    }else if(type === "Audio"){
+        return(<audio src={message} controls />);
     }else{
         return(<span>{message}</span>);
     }
@@ -114,7 +114,7 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
                 <div className="chat_footer_from">
                     <UploadImage send={send}/>
                     <UploadVideo send={send}/>
-                    <UploadAudio/>
+                    <UploadAudio send={send}/>
                     <input type="text" id={"messageid"} onKeyPress={handleKeypress} ref={massege} placeholder="New message here.."></input>
                     <button type="botton" id="send_text" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
                         className="btn btn-outline-secondary btn-sm"><Send />Send</button>
