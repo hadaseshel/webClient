@@ -28,6 +28,8 @@ function Chats({}) {
   }
 
   if (location.state==null){
+    console.log("in error you need to log in:");
+    console.log(Users);
     return(<ErrorChat/>);
   }
 
