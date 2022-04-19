@@ -31,6 +31,8 @@ function Chats({}) {
   const [messageList, setMessageList] = useState([{message: "hey, how are you?", own: "me"},{message: "I am good, how are you?", own: "not me"}]);
 
   if (location.state==null){
+    console.log("in error you need to log in:");
+    console.log(Users);
     return(<ErrorChat/>);
   }
 

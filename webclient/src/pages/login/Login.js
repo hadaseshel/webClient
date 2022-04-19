@@ -38,7 +38,7 @@ function Login({users}) {
           navigate("/chats",{state: {username: key, password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});
         }
       }
-      if(userName==="" || password ===""){
+      if(userName === "" || password === ""){
         setError("");
         setEmpty("empty");
       } else{
