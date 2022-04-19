@@ -37,7 +37,7 @@ function UploadImage({send}){
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Image", msg: <img id="sendimage" src={foto}/>})}}>Send</button>
+                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Image", msg: foto})}}>Send</button>
                     </div>
                 </div>
             </div>
