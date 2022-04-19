@@ -3,15 +3,13 @@ import Image from "../icons/Image";
 import "./Upload.css";
 
 function UploadImage({send}){
-    const[photo,setPhoto] = useState(null);
+    const[foto,setFoto] = useState(null);
     const target = useRef(null);
 
     const HandelUpload = (e) => {
         const uploaded = e.target.files[0];
-        setPhoto(URL.createObjectURL(uploaded));
+        setFoto(URL.createObjectURL(uploaded));
     }
-
-    const photoToSend = <img id="sendimage" src={photo}/>;
 
     return(
         <div className="upladeImage">
@@ -39,7 +37,7 @@ function UploadImage({send}){
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Image", msg: photoToSend})}}>Send</button>
+                        <button type="submit" className="btn btn-primary" onClick={() => {send({msgType: "Image", msg: foto})}}>Send</button>
                     </div>
                 </div>
             </div>

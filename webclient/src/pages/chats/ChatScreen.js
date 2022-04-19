@@ -7,12 +7,23 @@ import UploadVideo from "./upload/UploadVideo"
 import UploadAudio from "./upload/UploadAudio"
 import Users from '../../Users';
 
+const MessageByType = function({type,message}){
+    if(type==="Image"){
+        return(
+        <img id="sendimage" src={message}/>
+        );
+    }else{
+        return(<span>{message}</span>)
+    }
+}
+
 // one message
-function Message({message,own,time}){
+function Message({type,message,own,time}){
     return(
-        <p className={`chat_message ${(own!="me")?"chat_reciever":""}`}>{message}
+        <div className={`chat_message ${(own!="me")?"chat_reciever":""}`}>
+            <MessageByType type={type} message={message}/>
             <span className="chat_message_timedate">{time}</span>
-        </p>
+        </div>
     )
 }
 
@@ -20,7 +31,7 @@ function Message({message,own,time}){
 function MessagesList ({messages}) {
     // sync the chat list in the sidebar with the user's friends.
     const messageList = messages.map((message, key) => {
-        return <Message message={message.message} own={message.own} time={message.time} key={key} />;
+        return <Message type={message.type} message={message.message} own={message.own} time={message.time} key={key} />;
     });
     return (
         <div className="messageList">
@@ -53,9 +64,9 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                console.log("before push image to the friend chat: " + (Users[username].friends[i].chat));
+                //console.log("before push image to the friend chat: " + Users[username].friends[i].chat);
                 Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time});
-                console.log("after push image to the friend chat: " + Users[username].friends[i].chat);
+                //console.log("after push image to the friend chat: " + Users[username].friends[i].chat);
                 break;
             }
         }
