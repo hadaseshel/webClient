@@ -53,9 +53,9 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                //console.log("before push image to the friend chat: " + Users[username].friends[i]);
+                //console.log("before push image to the friend chat: " + (Users[username].username));
                 Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time});
-                //console.log("after push image to the friend chat: " + Users[username].friends[i]);
+                //console.log("after push image to the friend chat: " + Users[username].username);
                 break;
             }
         }
