@@ -64,6 +64,7 @@ export default function NewChat( {addChat,user}) {
                     }
                 }
                 addChat({username:key, nickname: Users[key].nickname, image: Users[key].image, chat: []});
+                document.getElementById('newcontant').value = '';
                 setErrorCanotAddMySelf("");
                 setErrorUserIsNotExist("");
                 setErrorAlreadyHaveTheContact("");

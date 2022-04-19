@@ -12,8 +12,12 @@ const MessageByType = function({type,message}){
         return(
         <img id="sendimage" src={message}/>
         );
+    }else if(type==="Video"){
+        return(<video id="sendvideo" src={message} controls/>);
+    }else if(type==="audio"){
+        return(<span></span>);
     }else{
-        return(<span>{message}</span>)
+        return(<span>{message}</span>);
     }
 }
 
@@ -45,14 +49,23 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
 
     // need to take care on the rander
     const send = function({msgType, msg}){
-        console.log("my type: " + msgType);
+        // new array to render
         let newArray;
+
+        // take care om the time
         var today = new Date();
-        var time = today.getHours() + ":" + today.getMinutes();
+        var hours = today.getHours();
+        if(hours==0||hours==1||hours==2||hours==3||hours==4||hours==5||hours==6||hours==7||hours==8||hours==9){
+            hours = "0" + hours;
+        }
+        var minutes = today.getMinutes();
+        if(minutes==0||minutes==1||minutes==2||minutes==3||minutes==4||minutes==5||minutes==6||minutes==7||minutes==8||minutes==9){
+            minutes = "0" + minutes;
+        }
+        var time = hours + ":" + minutes;
 
         //need to take care of push to the list by the proper chat contact
         for(let i=0; i<Users[usernameinlogin].friends.length;i++){
-            console.log(Users[usernameinlogin].friends[i].username);
             if (Users[usernameinlogin].friends[i].username===username){
                 Users[usernameinlogin].friends[i].chat.push({type:msgType, message:msg, own:"me", time:time});
                 newArray=[...Users[usernameinlogin].friends[i].chat];
@@ -64,20 +77,18 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                //console.log("before push image to the friend chat: " + Users[username].friends[i].chat);
                 Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time});
-                //console.log("after push image to the friend chat: " + Users[username].friends[i].chat);
                 break;
             }
         }
 
-        console.log(Users);
         const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname} image={image}
                                             messageList={newArray} createScreen={createScreen} updateLastM={updateLastM}/>;
         createScreen(newChatScreen);
 
         // update the chat with the new last message in order to show last message in the sidebarChat
         updateLastM(newArray);
+        document.getElementById('messageid').value = '';
     }
 
     // handle the enter key , send message by press in enter key
@@ -95,18 +106,16 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
                 <div className="chat_headerinfo">{nickname}</div>
             </div>
 
-            <div className="chat_body">
+            <div className="chat_body" id="chat_body">
                 <MessagesList messages={messageList}/>
             </div>
 
             <div className="chat_footer">
                 <div className="chat_footer_from">
-                    {/*<button type="button" className="btn btn-outline-secondary btn-sm"><IcionPaperclip />Upload</button>*/}
                     <UploadImage send={send}/>
                     <UploadVideo send={send}/>
                     <UploadAudio/>
-                    {/*<input type="text" value={message} onChange={(e)=>sendMessage(e.target.value)} placeholder="New message here.."></input>*/}
-                    <input type="text" onKeyPress={handleKeypress} ref={massege} placeholder="New message here.."></input>
+                    <input type="text" id={"messageid"} onKeyPress={handleKeypress} ref={massege} placeholder="New message here.."></input>
                     <button type="botton" id="send_text" onClick={() => {send({msgType: "Text", msg: massege.current.value})}} 
                         className="btn btn-outline-secondary btn-sm"><Send />Send</button>
                 </div>

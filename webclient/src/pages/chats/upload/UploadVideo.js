@@ -38,7 +38,7 @@ function UploadVideo({send}){
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" className="btn btn-primary" 
-                        onClick={() => {send({msgType: "Video", msg: <video id="sendvideo" src={video}/>})}}>
+                        onClick={() => {send({msgType: "Video", msg: video})}}>
                             Send</button>
                     </div>
                 </div>

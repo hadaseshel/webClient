@@ -9,9 +9,7 @@ import { useState } from "react";
 function ErrorChat(){
   return(
     // need to wirte here the right text
-    <div className="alert" role="alert">
-      You need to login. 
-      </div>
+    <h1 className="errorChat">To get to the chats you need to login.</h1>
   );
 }
 
@@ -28,8 +26,6 @@ function Chats({}) {
   }
 
   if (location.state==null){
-    console.log("in error you need to log in:");
-    console.log(Users);
     return(<ErrorChat/>);
   }
 

@@ -17,6 +17,18 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
 
     const lastMsg = updChat[updChat.length - 1]
 
+    const infoText=function(type, message){
+        if(type=="Text"){
+            var info = " " + message.substr(0,12);
+            if(message.length>12){
+                info = info + "...";
+            }
+            return(info);
+        }else{
+            var info = " " + type;
+            return(info);
+        }
+    }
 
     return (
         <div className="sidebar_chat" onClick={clickOnChat}>
@@ -28,9 +40,8 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
                     <h3>{nickname}</h3>
                     {(chat.length===0)?"":
                     <div className="last_message">{(lastMsg.own == "me")?"me":(nickname)}:
-                                                    {(lastMsg.type == "Text")?(" " + lastMsg.message):(" " + lastMsg.type)}
-                                                    <span className="last_message_timedate">
-                                                    {lastMsg.time}</span>
+                                                    {infoText(lastMsg.type,lastMsg.message)}
+                                                    <span className="last_message_timedate">{lastMsg.time}</span>
                     </div>}
                 </div>
             </div>

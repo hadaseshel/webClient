@@ -34,7 +34,6 @@ function Login({users}) {
     let password = passwordInput.current.value;
   
     for (var key in Users){
-      console.log(key);
       // if the username and the password are correct, move to the chats page. (working!)
         if (userName === key && password === Users[key].password){
           navigate("/chats",{state: {username: key, password: Users[key].password, nickname: Users[key].nickname, image: Users[key].image, friends: Users[key].friends}});

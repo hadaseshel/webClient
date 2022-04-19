@@ -44,9 +44,3 @@ function SideBar({user, createScreen}) {
 
 
 export default SideBar;
-
-/*
-<button type="button" className="btn btn-outline-secondary btn-sm"
-                    data-bs-toggle="modal" data-bs-target="#newChatModal">
-                        <AvatarPlusIcon />
-                    </button>*/
