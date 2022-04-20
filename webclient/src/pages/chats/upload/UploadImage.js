@@ -31,7 +31,7 @@ function UploadImage({send}){
                             </div>
                             <div className="col-sm-12">
                                 <label htmlFor="img" className="btn btn-primary"><Image /> Select image</label>
-                                <input type="file" id="img" accept="image/png, image/jpeg" ref={target} onChange={(e)=>HandelUpload(e)}/>
+                                <input type="file" id="img" accept="image/*" ref={target} onChange={(e)=>HandelUpload(e)}/>
                             </div>
                         </div>
                     </div>

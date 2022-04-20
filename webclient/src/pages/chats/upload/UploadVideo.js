@@ -31,7 +31,7 @@ function UploadVideo({send}){
                             </div>
                             <div className="col-sm-12">
                                 <label htmlFor="video" className="btn btn-primary"><CameraReels/> Select video</label>
-                                <input type="file" id="video" ref={target} onChange={(e)=>HandelUpload(e)}/>
+                                <input type="file" id="video" accept="video/*" ref={target} onChange={(e)=>HandelUpload(e)}/>
                             </div>
                         </div>
                     </div>

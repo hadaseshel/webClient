@@ -15,7 +15,7 @@ const MessageByType = function({ type, message }){
     }else if(type === "Video"){
         return(<video id="sendvideo" src={message} controls/>);
     }else if(type === "Audio"){
-        return(<audio src={message} controls />);
+        return(<audio id="sendaudio" src={message} controls />);
     }else{
         return(<span>{message}</span>);
     }
@@ -49,6 +49,10 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
 
     // need to take care on the rander
     const send = function({msgType, msg}){
+        if(msgType === "Text" && msg===""){
+            return;
+        }
+
         // new array to render
         let newArray;
 

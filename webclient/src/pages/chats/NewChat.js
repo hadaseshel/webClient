@@ -38,6 +38,7 @@ export default function NewChat( {addChat,user}) {
         setErrorCanotAddMySelf("");
         setErrorUserIsNotExist("");
         setErrorAlreadyHaveTheContact("");
+        document.getElementById('newcontant').value = '';
     }
 
     const addContact = function(){

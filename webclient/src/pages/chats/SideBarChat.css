@@ -13,12 +13,34 @@
     display: flex;
     outline-color: black;
 }
+
+.info{
+    float: left;
+    display: block;
+}
+
 .info:hover{
     color: purple;
 }
 
-.info{
+
+
+.nickname{
+    font-size: 28px;
     margin-left: 10px;
+    /*float:left;*/
+    /*margin-left: 10px;
+    margin-right: auto;*/ 
+    /*padding-left: -10px;
+    margin-left: 10px;
+    float: left;*/
+}
+
+.last_message{
+    /*padding-left: -10px;
+    margin-left: 10px;
+    padding-bottom: -10px;
+    float: left;*/
 }
 
 .last_message_timedate{

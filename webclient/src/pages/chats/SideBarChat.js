@@ -19,7 +19,7 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
 
     const infoText=function(type, message){
         if(type=="Text"){
-            var info = " " + message.substr(0,12);
+            var info = message.substr(0,12);
             if(message.length>12){
                 info = info + "...";
             }
@@ -37,11 +37,10 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
                     {(image!==null)?<img id="userimag" src={image} />:<Avatar/>}
                 </div>
                 <div className="info">
-                    <h3>{nickname}</h3>
+                    <div className="nickname" id="nickname">{nickname}</div>
                     {(chat.length===0)?"":
-                    <div className="last_message">{(lastMsg.own == "me")?"me":(nickname)}:
-                                                    {infoText(lastMsg.type,lastMsg.message)}
-                                                    <span className="last_message_timedate">{lastMsg.time}</span>
+                    <div className="last_message" id="last_message">{(lastMsg.own == "me")?"me":(nickname)}:{infoText(lastMsg.type,lastMsg.message)}
+                        <span className="last_message_timedate">{lastMsg.time}</span>
                     </div>}
                 </div>
             </div>
