@@ -24,12 +24,20 @@ The users that exist in the app are:
 
 ## Login
 The homepage is the Login page.
-Try to login with the details of user:'hadaseshel', now you will be taken to the user's chat screen of hadaseshel'.
+Try to login with the details of user:'hadaseshel', now you will be taken to the user's chat screen of hadaseshel.
 If you want to register to this app you can enter the registration form by clicking on the link in the text "Not registred? Click here to register".
 
 
 ## Registration
-**need to countinue here.**
+To register, you will need to fill in 4 fields:
+- Required:
+Username (Can only contain letters and numbers).
+Nickname (Can only contain letters and numbers).
+Password (The password must consist of at least 8 characters that include at least 1 lowercase character, 1 uppercase character and 1 number. All the other characters are not allowed to use in the password).
+- Optional:
+Upload User Image.
+
+Filling in the fields in a way that does not comply with the registration rules will pop up an error message in the registration.
 
 If you want to Login you can enter the Login form by clicking on the link in the text "Already registred? Click here to login".
 
@@ -38,10 +46,16 @@ To go on the chat screen you must login. Login with the details of user:'hadases
 If you want to see the chat screen of others user, you can login with the details of the other user that exist in the app.
 
 ### Add contact
-**need to countinue here.**
+To add a chat with another user who is not in your chat list, click on the "Avatar Plus" icon in the upper left area of the screen.
+The username of the desired contact must be entered.
+You can only enter the username of a registered user, who is not in your list. It will then be added to your chat list.
 
 ### Send message
-**need to countinue here.**
+Sending a message is done through the bottom of the selected chat screen.
+To send a video, voice or image Select the appropriate icon in this area.
+To send text, enter the text in the space provided next to the icons.
+
+You can see that the message was received "on the other side" by logging in to the user who received the message (without retrying).
 
 
 
