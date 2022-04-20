@@ -24,7 +24,7 @@ The users that exist in the app are:
 
 ## Login
 The homepage is the Login page.
-Try to login with the details of user:'hadaseshel', by the logging in you will be taken to the user's chat screen of hadaseshel'.
+Try to login with the details of user:'hadaseshel', now you will be taken to the user's chat screen of hadaseshel'.
 If you want to register to this app you can enter the registration form by clicking on the link in the text "Not registred? Click here to register".
 
 
