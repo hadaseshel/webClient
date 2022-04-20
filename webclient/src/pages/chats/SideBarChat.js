@@ -11,7 +11,7 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
     // function that insert the chat screen when we click on a sidebar chat to the function "setChatScreen" in chats.js
     const clickOnChat = function() {
         const newChatScreen = <ChatScreen usernameinlogin={usernameinlogin} username={username} nickname={nickname}
-                                            image={image} messageList={chat} createScreen={createScreen} updateLastM={setUpdChat}/>;
+                                            image={image} messageList={updChat} createScreen={createScreen} updateLastM={setUpdChat}/>;
         createScreen(newChatScreen);
     }
 
