@@ -51,7 +51,11 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
     const send = function({msgType, msg}){
         if(msgType === "Text" && msg===""){
             return;
-        }
+        } else if((msgType === "Image" || msgType === "Video")&& msg==null){
+            return;
+        } else if(msgType === "Audio" && msg==""){
+            return;
+        } 
 
         // new array to render
         let newArray;
