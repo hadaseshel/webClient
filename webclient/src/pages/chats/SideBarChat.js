@@ -30,6 +30,10 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
         }
     }
 
+    const d = new Date();
+    var month = d.getMonth()+1;
+    var date = " " + d.getDate() + "/" + month + "/" + d.getFullYear();
+
     return (
         <div className="sidebar_chat" onClick={clickOnChat}>
             <div className="sidechat_info">
@@ -40,7 +44,7 @@ function SideBarChat({usernameinlogin, username, nickname, image, chat, createSc
                     <div className="nickname" id="nickname">{nickname}</div>
                     {(chat.length===0)?"":
                     <div className="last_message" id="last_message">{(lastMsg.own == "me")?"me":(nickname)}:{infoText(lastMsg.type,lastMsg.message)}
-                        <span className="last_message_timedate">{lastMsg.time}</span>
+                        <span className="last_message_timedate">{lastMsg.time + date}</span>
                     </div>}
                 </div>
             </div>
