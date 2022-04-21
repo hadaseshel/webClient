@@ -7,6 +7,7 @@ The project contains a network of chats. In this client app you can:
 4. Send messages of text, image, video and voice to friends.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**In our project we used the package react-router-dom.**
 To run this project you need to use the command:
 ### `npm start`
 
