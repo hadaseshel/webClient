@@ -7,7 +7,7 @@ The project contains a network of chats. In this client app you can:
 4. Send messages of text, image, video and voice to friends.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-To run this project you need to use the command:
+To run this project you need to **enter the folder "webclient"** and then you need to use the command:
 ### `npm start`
 
 It will runs the app in the development mode.
@@ -60,5 +60,3 @@ To send text, enter the text in the space provided next to the icons.
 You can see that the message was received "on the other side" by logging in to the user who received the message (without retrying).
 
 If you login by the user details of 'hadaseshel' You can see the different messages that have already been sent in the different chats of this user: text, video, image and voice.
-
-

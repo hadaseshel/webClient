@@ -72,10 +72,13 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         }
         var time = hours + ":" + minutes;
 
+        var month = today.getMonth()+1;
+        var date = today.getDate() + "/" + month + "/" + today.getFullYear();
+
         //need to take care of push to the list by the proper chat contact
         for(let i=0; i<Users[usernameinlogin].friends.length;i++){
             if (Users[usernameinlogin].friends[i].username===username){
-                Users[usernameinlogin].friends[i].chat.push({type:msgType, message:msg, own:"me", time:time});
+                Users[usernameinlogin].friends[i].chat.push({type:msgType, message:msg, own:"me", time:time, date:date});
                 newArray=[...Users[usernameinlogin].friends[i].chat];
                 break;
             }
@@ -85,7 +88,7 @@ function ChatScreen({usernameinlogin, username, nickname, image, messageList,cre
         // add the chat in the list of the friends
         for(let i=0; i<Users[username].friends.length;i++){
             if (Users[username].friends[i].username===usernameinlogin){
-                Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time});
+                Users[username].friends[i].chat.push({type:msgType, message:msg, own: "not me", time:time, date:date});
                 break;
             }
         }

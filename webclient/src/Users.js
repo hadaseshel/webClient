@@ -1,15 +1,15 @@
 //list of chat
 // video, audio , image, text
-const hadasCatWitHail=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:00"},{type:"Text" ,message: "I am good, how are you?", own: "not me", time:"12:05"}];
-const hailChatWithHadas=[{type:"Text",message: "hey, how are you?", own: "not me", time:"12:00"},{type:"Text", message: "I am good, how are you?", own: "me", time:"12:05"}];
-const HadasChatWithshira=[{type:"Text",message: "hey, how are you???", own: "not me", time:"12:40"},{type:"Text",message: "I am fine, how are you?", own: "me" ,time:"12:45"}];
-const shiraChatWithHadas=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:40"},{type:"Text",message: "I am fine, how are you?", own: "not me" ,time:"12:45"}];
-const HadasChatWithOrtal = [{type:"Image",message: "hadasfoto.png", own: "me", time:"15:00"}];
-const OrtalChatWithHadas = [{type:"Image",message: "hadasfoto.png", own: "not me", time:"15:00"}];
-const HadasChatWithLia = [{type:"Video",message: "mydog.mp4", own: "not me", time:"15:00"}];
-const LialChatWithHadas = [{type:"Video",message: "mydog.mp4", own: "me", time:"15:00"}];
-const HadasChatWithSivan = [{type:"Audio",message: "myHav.wav", own: "me", time:"17:00"}];
-const SivanChatWithHadas = [{type:"Audio",message: "myHav.wav", own: "not me", time:"17:00"}];
+const hadasCatWitHail=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:00", date:"3/4/2022"},{type:"Text" ,message: "I am good, how are you?", own: "not me", time:"12:05",date:"3/4/2022"}];
+const hailChatWithHadas=[{type:"Text",message: "hey, how are you?", own: "not me", time:"12:00",date:"3/4/2022"},{type:"Text", message: "I am good, how are you?", own: "me", time:"12:05",date:"3/4/2022"}];
+const HadasChatWithshira=[{type:"Text",message: "hey, how are you???", own: "not me", time:"12:40",date:"3/4/2022"},{type:"Text",message: "I am fine, how are you?", own: "me" ,time:"12:45",date:"3/4/2022"}];
+const shiraChatWithHadas=[{type:"Text",message: "hey, how are you???", own: "me", time:"12:40",date:"3/4/2022"},{type:"Text",message: "I am fine, how are you?", own: "not me" ,time:"12:45",date:"3/4/2022"}];
+const HadasChatWithOrtal = [{type:"Image",message: "hadasfoto.png", own: "me", time:"15:00",date:"3/4/2022"}];
+const OrtalChatWithHadas = [{type:"Image",message: "hadasfoto.png", own: "not me", time:"15:00",date:"3/4/2022"}];
+const HadasChatWithLia = [{type:"Video",message: "mydog.mp4", own: "not me", time:"15:00", date:"3/4/2022"}];
+const LialChatWithHadas = [{type:"Video",message: "mydog.mp4", own: "me", time:"15:00", date:"3/4/2022"}];
+const HadasChatWithSivan = [{type:"Audio",message: "myHav.wav", own: "me", time:"17:00", date:"3/4/2022"}];
+const SivanChatWithHadas = [{type:"Audio",message: "myHav.wav", own: "not me", time:"17:00", date:"3/4/2022"}];
 
 
 // list of friends
